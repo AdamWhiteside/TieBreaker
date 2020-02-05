@@ -9,6 +9,7 @@ import android.view.animation.Animation;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import java.util.Random;
 
@@ -45,7 +46,15 @@ public class CoinFlipActivity extends AppCompatActivity {
 
             @Override
             public void onAnimationEnd(Animation animation) {
-                coin.setImageResource(RANDOM.nextFloat() > 0.5f ? R.drawable.tails : R.drawable.heads);
+
+                if (RANDOM.nextFloat() > 0.5f) {
+                    coin.setImageResource(R.drawable.tails);
+                    Toast.makeText(getApplicationContext(),R.string.tails_wins,Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    coin.setImageResource(R.drawable.heads);
+                    Toast.makeText(getApplicationContext(),R.string.heads_wins,Toast.LENGTH_SHORT).show();
+                }
 
                 Animation fadeIn = new AlphaAnimation(0, 1);
                 fadeIn.setInterpolator(new DecelerateInterpolator());

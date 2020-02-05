@@ -19,6 +19,6 @@
         android:layout_below="@id/coin"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="60dp"
-        android:text="Flip"/>
+        android:text="@string/flip_btn"/>
 
 </RelativeLayout>
