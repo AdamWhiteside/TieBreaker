@@ -3,4 +3,5 @@
     <string name="flip_btn">Flip!</string>
     <string name="heads_wins">Heads Wins!</string>
     <string name="tails_wins">Tails Wins!</string>
+    <string name="pick_a_game">Pick A Game</string>
 </resources>
