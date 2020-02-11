@@ -14,6 +14,12 @@
         android:background="@color/colorAccent"
         android:text="@string/app_name"></Button>
 
+    <Button
+        android:id="@+id/btnPickGame"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/pick_a_game" />
+
     <android.support.v7.widget.AppCompatImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
