@@ -21,12 +21,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        btnSettleTheScore = findViewById(R.id.btnSettleTheScore);
+        btnSettleTheScore = (Button) findViewById(R.id.btnSettleTheScore);
         btnSettleTheScore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                openCoinFlipActivity();
+                openPopUpActivity();
             }
         });
 
@@ -38,8 +37,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-    public void openCoinFlipActivity() {
-        Intent intent = new Intent(this,CoinFlipActivity.class);
+    public void openPopUpActivity() {
+        Intent intent = new Intent(this,PopUpActivity.class);
         startActivity(intent);
     }
 
