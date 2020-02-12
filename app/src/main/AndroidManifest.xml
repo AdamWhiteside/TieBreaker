@@ -11,8 +11,9 @@
         android:theme="@style/AppTheme">
         <activity android:name=".ResultsActivity"></activity>
         <activity android:name=".PopUpActivity" />
+        <activity android:name=".TicTacToeActivity" />
         <activity android:name=".CoinFlipActivity" />
-        <activity android:name=".MainActivity">
+                <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
