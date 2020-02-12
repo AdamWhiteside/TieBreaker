@@ -12,6 +12,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.mewtwo2.settlethescore.GameRegistry;
+
 public class MainActivity extends AppCompatActivity {
 
     Button btnSettleTheScore;
@@ -20,6 +22,10 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        //Register games with the system
+        registerGames();
+
         setContentView(R.layout.activity_main);
         btnSettleTheScore = (Button) findViewById(R.id.btnSettleTheScore);
         btnSettleTheScore.setOnClickListener(new View.OnClickListener() {
@@ -37,9 +43,16 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
     public void openPopUpActivity() {
         Intent intent = new Intent(this,PopUpActivity.class);
         startActivity(intent);
+    }
+
+    void registerGames()
+    {
+        //Must add your game here for it to work in the system
+        GameRegistry.RegisterGame(CoinFlipActivity.class, R.string.instruction_coin_flip, R.drawable.heads);
     }
 
 }
