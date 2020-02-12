@@ -25,9 +25,13 @@ public class CoinFlipActivity extends AppCompatActivity {
     private String choice;
 
     //public static vars are referenced in other classes
-    public static boolean playerOneTurn = true;
-    public static int playerOneScore = 0;
-    public static int playerTwoScore = 0;
+    //public static boolean playerOneTurn = true;
+    //public static int playerOneScore = 0;
+    //public static int playerTwoScore = 0;
+
+    private boolean playerOneTurn = true;
+    private int playerOneScore = 0;
+    private int playerTwoScore = 0;
 
 
 
@@ -35,6 +39,12 @@ public class CoinFlipActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_coin_flip);
+
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            playerOneTurn = extras.getBoolean("playerOneTurn");
+            playerOneScore = extras.getInt("playerOneScore");
+        }
 
         //get coin id
         coin = (ImageView) findViewById(R.id.coin);
@@ -127,8 +137,7 @@ public class CoinFlipActivity extends AppCompatActivity {
                     }
                 }
 
-                System.out.println("playerOneScore: " + playerOneScore);
-                System.out.println("playerTwoScore: " + playerTwoScore);
+                System.out.println("CoinFlipActivity playerOneScore = " + playerOneScore);
 
                 Animation fadeIn = new AlphaAnimation(0, 1);
                 fadeIn.setInterpolator(new DecelerateInterpolator());
@@ -173,16 +182,15 @@ public class CoinFlipActivity extends AppCompatActivity {
 
     public void openPopUpActivity() {
         Intent intent = new Intent(this,PopUpActivity.class);
-        startActivity(intent);
-    }
-
-    public void openMainActivity() {
-        Intent intent = new Intent(this,MainActivity.class);
+        intent.putExtra("playerOneTurn", playerOneTurn);
+        intent.putExtra("playerOneScore", playerOneScore);
         startActivity(intent);
     }
 
     public void openResultsActivity() {
         Intent intent = new Intent(this,ResultsActivity.class);
+        intent.putExtra("playerOneScore", playerOneScore);
+        intent.putExtra("playerTwoScore", playerTwoScore);
         startActivity(intent);
     }
 }

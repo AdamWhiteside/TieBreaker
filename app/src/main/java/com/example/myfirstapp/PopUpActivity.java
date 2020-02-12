@@ -12,13 +12,28 @@ public class PopUpActivity extends AppCompatActivity {
 
     private Button ready_btn;
     private TextView player_text_view;
+    private boolean playerOneTurn;
+    private int playerOneScore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pop_up);
+
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            playerOneTurn = extras.getBoolean("playerOneTurn");
+            playerOneScore = extras.getInt("playerOneScore");
+            System.out.println("PopUpActivity playerOneTurn = " + playerOneTurn);
+            System.out.println("PopUpActivity playerOneScore = " + playerOneScore);
+        }
+        else {
+            System.out.println("PopUpActivity playerOneTurn = " + playerOneTurn);
+        }
+
+
         player_text_view = (TextView) findViewById(R.id.player_text);
-        if (CoinFlipActivity.playerOneTurn == true) {
+        if (playerOneTurn == true) {
             player_text_view.setText(R.string.player_one);
         }
         else {
@@ -40,6 +55,8 @@ public class PopUpActivity extends AppCompatActivity {
 
     public void openCoinFlipActivity() {
         Intent intent = new Intent(this,CoinFlipActivity.class);
+        intent.putExtra("playerOneTurn", playerOneTurn);
+        intent.putExtra("playerOneScore", playerOneScore);
         startActivity(intent);
     }
 }
