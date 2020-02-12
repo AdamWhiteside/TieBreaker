@@ -15,14 +15,14 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="#00FFFDFD"
+            android:background="@color/colorAccent"
             android:orientation="vertical"></LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@color/colorAccent"
+            android:background="@color/colorPrimary"
             android:orientation="vertical"></LinearLayout>
     </LinearLayout>
 
