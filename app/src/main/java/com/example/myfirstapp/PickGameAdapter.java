@@ -21,7 +21,7 @@ public class PickGameAdapter extends RecyclerView.Adapter<PickGameAdapter.GameVi
     }
 
     public PickGameAdapter() {
-        gameInfoList = GameRegistry.getRegistrationList();
+        gameInfoList = GameRegistry.getGameInfoList();
     }
 
     @Override

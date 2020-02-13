@@ -29,19 +29,19 @@ public class GameRegistry {
         instance.gameDictionary.put(activity, gi);
     }
 
-    public static GameInfo getRegistration(Class<?> activityClass)
+    public static GameInfo getGameInfo(Class<?> activityClass)
     {
         return getInstance().gameDictionary.get(activityClass);
     }
 
-    public static GameInfo getRandomRegistration()
+    public static GameInfo getRandomGameInfo()
     {
         GameRegistry instance = getInstance();
 
         return instance.gameInfoList.get(new Random().nextInt(instance.gameInfoList.size()));
     }
 
-    public static List<GameInfo> getRegistrationList()
+    public static List<GameInfo> getGameInfoList()
     {
         return getInstance().gameInfoList;
     }

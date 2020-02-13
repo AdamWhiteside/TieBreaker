@@ -186,7 +186,7 @@ public class CoinFlipActivity extends AppCompatActivity {
         Intent intent = new Intent(this,PopUpActivity.class);
         intent.putExtra("playerOneTurn", playerOneTurn);
         intent.putExtra("playerOneScore", playerOneScore);
-        intent.putExtra("GameInfo", GameRegistry.getRegistration(CoinFlipActivity.class));
+        intent.putExtra("GameInfo", GameRegistry.getGameInfo(CoinFlipActivity.class));
         startActivity(intent);
     }
 
