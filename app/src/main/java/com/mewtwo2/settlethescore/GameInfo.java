@@ -1,6 +1,8 @@
 package com.mewtwo2.settlethescore;
 
-public class GameInfo {
+import java.io.Serializable;
+
+public class GameInfo implements Serializable {
     public Class<?> activity;
     public int instructionsID;
     public int logoID;
