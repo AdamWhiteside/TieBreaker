@@ -39,6 +39,8 @@
         android:id="@+id/btnPickGame"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:background="@drawable/buttonborder"
         android:text="@string/pick_a_game" />
 
     <android.support.v7.widget.AppCompatImageView
