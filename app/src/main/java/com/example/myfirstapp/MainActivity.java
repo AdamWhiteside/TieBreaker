@@ -36,7 +36,8 @@ public class MainActivity extends AppCompatActivity {
         btnPickGame.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getApplicationContext(),"Pick Game Clicked",Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(),"Pick Game Clicked",Toast.LENGTH_SHORT).show();
+                openPickGameActivity();
             }
         });
     }
@@ -47,6 +48,13 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra("GameInfo",gameToLaunch);
         startActivity(intent);
     }
+
+    public void openPickGameActivity()
+    {
+        Intent intent = new Intent(this,PickGame.class);
+        startActivity(intent);
+    }
+
 
     void registerGames()
     {
