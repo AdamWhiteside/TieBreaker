@@ -41,6 +41,12 @@ public class GameRegistry {
         return instance.gameInfoList.get(new Random().nextInt(instance.gameInfoList.size()));
     }
 
+    public static List<GameInfo> getRegistrationList()
+    {
+        return getInstance().gameInfoList;
+    }
+
+
 
     private static GameRegistry getInstance()
     {
