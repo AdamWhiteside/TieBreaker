@@ -13,6 +13,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.mewtwo2.settlethescore.registration.GameRegistry;
+
 import java.util.Random;
 
 public class CoinFlipActivity extends AppCompatActivity {
@@ -184,6 +186,7 @@ public class CoinFlipActivity extends AppCompatActivity {
         Intent intent = new Intent(this,PopUpActivity.class);
         intent.putExtra("playerOneTurn", playerOneTurn);
         intent.putExtra("playerOneScore", playerOneScore);
+        intent.putExtra("GameInfo", GameRegistry.getRegistration(CoinFlipActivity.class));
         startActivity(intent);
     }
 
