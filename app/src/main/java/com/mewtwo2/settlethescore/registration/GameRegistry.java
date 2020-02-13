@@ -1,4 +1,4 @@
-package com.mewtwo2.settlethescore;
+package com.mewtwo2.settlethescore.registration;
 
 import java.util.ArrayList;
 import java.util.Dictionary;

@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.mewtwo2.settlethescore.GameInfo;
+import com.mewtwo2.settlethescore.registration.GameInfo;
 
 public class PopUpActivity extends AppCompatActivity {
 
