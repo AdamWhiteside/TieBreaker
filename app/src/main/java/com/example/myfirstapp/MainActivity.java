@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
 
     Button btnSettleTheScore;
     Button btnPickGame;
+    private boolean playerOneTurn = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void openPopUpActivity() {
         Intent intent = new Intent(this,PopUpActivity.class);
+        intent.putExtra("playerOneTurn",playerOneTurn);
         startActivity(intent);
     }
 

@@ -22,12 +22,17 @@ public class ResultsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_results);
 
+
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            playerOneScore = extras.getInt("playerOneScore");
+            playerTwoScore = extras.getInt("playerTwoScore");
+        }
+
         player_one_score_text_view = (TextView) findViewById(R.id.player_one_score);
-        playerOneScore = CoinFlipActivity.playerOneScore;
         player_one_score_text_view.append(" " + playerOneScore);
 
         player_two_score_text_view = (TextView) findViewById(R.id.player_two_score);
-        playerTwoScore = CoinFlipActivity.playerTwoScore;
         player_two_score_text_view.append(" " + playerTwoScore);
 
         winner_text_view = (TextView) findViewById(R.id.winner_text);
