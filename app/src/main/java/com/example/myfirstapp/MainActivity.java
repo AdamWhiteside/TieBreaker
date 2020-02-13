@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.mewtwo2.settlethescore.GameInfo;
 import com.mewtwo2.settlethescore.GameRegistry;
 
 public class MainActivity extends AppCompatActivity {
@@ -32,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         btnSettleTheScore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                openPopUpActivity();
+                openPopUpActivity(GameRegistry.getRandomRegistration());
             }
         });
 
@@ -45,9 +46,10 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    public void openPopUpActivity() {
+    public void openPopUpActivity(GameInfo gameToLaunch) {
         Intent intent = new Intent(this,PopUpActivity.class);
         intent.putExtra("playerOneTurn",playerOneTurn);
+        intent.putExtra("GameInfo",gameToLaunch);
         startActivity(intent);
     }
 
