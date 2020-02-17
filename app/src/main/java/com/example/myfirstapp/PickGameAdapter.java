@@ -1,6 +1,8 @@
 package com.example.myfirstapp;
 
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
@@ -34,7 +36,18 @@ public class PickGameAdapter extends RecyclerView.Adapter<PickGameAdapter.GameVi
 
     @Override
     public void onBindViewHolder(GameViewHolder holder, int position) {
-        holder.imageView.setImageResource(gameInfoList.get(position).logoID);
+        final int p = position;
+
+        holder.imageView.setImageResource(gameInfoList.get(p).logoID);
+        holder.imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(view.getContext(), PopUpActivity.class);
+                intent.putExtra("playerOneTurn", true);
+                intent.putExtra("GameInfo",gameInfoList.get(p));
+                view.getContext().startActivity(intent);
+            }
+        });
     }
 
     @Override
