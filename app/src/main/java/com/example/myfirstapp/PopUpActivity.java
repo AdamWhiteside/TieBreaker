@@ -24,7 +24,6 @@ public class PopUpActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pop_up);
         instructions = (TextView) findViewById(R.id.instruction_text);
-        instructions.setText(R.string.really_long_string);
         instructions.setMovementMethod(new ScrollingMovementMethod());
 
         Bundle extras = getIntent().getExtras();
@@ -35,6 +34,8 @@ public class PopUpActivity extends AppCompatActivity {
             System.out.println("PopUpActivity playerOneTurn = " + playerOneTurn);
             System.out.println("PopUpActivity playerOneScore = " + playerOneScore);
         }
+
+        instructions.setText(gameToLaunch.instructionsID);
 
         player_text_view = (TextView) findViewById(R.id.player_text);
         if (playerOneTurn == true) {
