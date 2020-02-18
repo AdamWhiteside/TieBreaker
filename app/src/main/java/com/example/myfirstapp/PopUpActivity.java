@@ -8,6 +8,8 @@ import android.widget.Button;
 import android.text.method.ScrollingMovementMethod;
 import android.widget.TextView;
 
+import com.mewtwo2.settlethescore.registration.GameInfo;
+
 public class PopUpActivity extends AppCompatActivity {
 
     private Button ready_btn;
@@ -15,6 +17,7 @@ public class PopUpActivity extends AppCompatActivity {
     private TextView instructions;
     private boolean playerOneTurn;
     private int playerOneScore;
+    private GameInfo gameToLaunch;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +31,9 @@ public class PopUpActivity extends AppCompatActivity {
         if (extras != null) {
             playerOneTurn = extras.getBoolean("playerOneTurn");
             playerOneScore = extras.getInt("playerOneScore");
+            gameToLaunch = (GameInfo)extras.getSerializable("GameInfo");
+            System.out.println("PopUpActivity playerOneTurn = " + playerOneTurn);
+            System.out.println("PopUpActivity playerOneScore = " + playerOneScore);
         }
 
         player_text_view = (TextView) findViewById(R.id.player_text);
@@ -52,7 +58,7 @@ public class PopUpActivity extends AppCompatActivity {
     }
 
     public void openCoinFlipActivity() {
-        Intent intent = new Intent(this,CoinFlipActivity.class);
+        Intent intent = new Intent(this, gameToLaunch.activity);
         intent.putExtra("playerOneTurn", playerOneTurn);
         intent.putExtra("playerOneScore", playerOneScore);
         startActivity(intent);
