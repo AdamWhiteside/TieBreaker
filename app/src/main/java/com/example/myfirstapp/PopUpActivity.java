@@ -5,13 +5,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
+import android.text.method.ScrollingMovementMethod;
 import android.widget.TextView;
 
 public class PopUpActivity extends AppCompatActivity {
 
     private Button ready_btn;
     private TextView player_text_view;
+    private TextView instructions;
     private boolean playerOneTurn;
     private int playerOneScore;
 
@@ -19,18 +20,15 @@ public class PopUpActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pop_up);
+        instructions = (TextView) findViewById(R.id.instruction_text);
+        instructions.setText(R.string.really_long_string);
+        instructions.setMovementMethod(new ScrollingMovementMethod());
 
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
             playerOneTurn = extras.getBoolean("playerOneTurn");
             playerOneScore = extras.getInt("playerOneScore");
-            System.out.println("PopUpActivity playerOneTurn = " + playerOneTurn);
-            System.out.println("PopUpActivity playerOneScore = " + playerOneScore);
         }
-        else {
-            System.out.println("PopUpActivity playerOneTurn = " + playerOneTurn);
-        }
-
 
         player_text_view = (TextView) findViewById(R.id.player_text);
         if (playerOneTurn == true) {
