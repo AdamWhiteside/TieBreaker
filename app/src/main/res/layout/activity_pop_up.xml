@@ -25,6 +25,8 @@
         android:text="@string/really_long_string"
         android:textAlignment="center"
         android:textColor="@color/colorAccent"
+        android:maxLength="500"
+        android:maxLines="10"
         android:scrollbars="vertical"
         android:textSize="25sp" />
 
@@ -33,6 +35,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
+        android:layout_marginBottom="25dp"
         android:background="@drawable/buttonborder"
         android:text="@string/ready_btn" />
 </LinearLayout>
