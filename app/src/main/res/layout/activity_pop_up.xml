@@ -10,15 +10,31 @@
         android:id="@+id/player_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="300dp"
-        android:text="Player 1"
+        android:layout_marginTop="0dp"
+        android:text="@string/player_one"
         android:textColor="@color/colorAccent"
-        android:textSize="50dp" />
+        android:textSize="50sp" />
+
+    <TextView
+        android:id="@+id/instruction_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginLeft="25dp"
+        android:textAlignment="center"
+        android:textColor="@color/colorAccent"
+        android:maxLength="500"
+        android:maxLines="10"
+        android:scrollbars="vertical"
+        android:textSize="25sp" />
 
     <Button
         android:id="@+id/button_ready"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="#4CAF50"
+        android:layout_marginTop="100dp"
+        android:layout_marginBottom="25dp"
+        android:background="@drawable/buttonborder"
         android:text="@string/ready_btn" />
 </LinearLayout>

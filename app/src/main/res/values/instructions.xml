@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="instruction_coin_flip">
+        Coin flipping is used to decide which end of the field the teams will play to and/or which team gets first use of the ball, or similar questions in football matches, American football games, Australian rules football, volleyball, and other sports requiring such decisions.
+    </string>
+</resources>

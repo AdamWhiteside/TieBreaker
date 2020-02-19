@@ -26,7 +26,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_weight=".5"
-            android:background="@color/colorAccent"
+            android:background="@drawable/buttonborder"
             android:text="@string/heads_btn" />
 
         <Button
@@ -34,7 +34,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight=".5"
-            android:background="@color/colorAccent"
+            android:background="@drawable/buttonborder"
             android:text="@string/tails_btn" />
     </LinearLayout>
 </RelativeLayout>
