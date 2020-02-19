@@ -31,6 +31,7 @@ public class PopUpActivity extends AppCompatActivity {
             playerOneTurn = extras.getBoolean("playerOneTurn");
             playerOneScore = extras.getInt("playerOneScore");
             gameToLaunch = (GameInfo)extras.getSerializable("GameInfo");
+            //getActionBar().setTitle((GameInfo) extras.getSerializable("gameName"));
             System.out.println("PopUpActivity playerOneTurn = " + playerOneTurn);
             System.out.println("PopUpActivity playerOneScore = " + playerOneScore);
         }
