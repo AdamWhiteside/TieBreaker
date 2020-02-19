@@ -59,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
     {
         //Must add your game here for it to work in the system
         GameRegistry.RegisterGame(CoinFlipActivity.class, R.string.instruction_coin_flip, R.drawable.heads);
+        GameRegistry.RegisterGame(TicTacToeActivity.class, R.string.instruction_tic_tac_toe, R.drawable.tails);
     }
 
 }
