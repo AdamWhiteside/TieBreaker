@@ -20,10 +20,10 @@ public class GameRegistry {
         gameInfoList = new ArrayList<>();
     }
 
-    public static void RegisterGame(Class<?> activity, int instructionsID, int logoID )
+    public static void RegisterGame(Class<?> activity, int nameID, int instructionsID, int logoID, GameInfo.GameType gameType)
     {
         GameRegistry instance = getInstance();
-        GameInfo gi = new GameInfo(activity,instructionsID,logoID);
+        GameInfo gi = new GameInfo(activity,nameID,instructionsID,logoID,gameType);
 
         instance.gameInfoList.add(gi);
         instance.gameDictionary.put(activity, gi);

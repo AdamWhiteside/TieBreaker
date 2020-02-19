@@ -19,4 +19,7 @@
     <string name="tie_text">It\'s a tie!</string>
     <string name="player_one_wins">Player 1 wins!</string>
     <string name="player_two_wins">Player 2 wins!</string>
+
+    <string name="name_coin_flip">Coin Flip</string>
+    <string name="name_tic_tac_toe">Tic Tac Toe</string>
 </resources>
