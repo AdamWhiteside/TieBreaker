@@ -1,4 +1,4 @@
-package com.example.myfirstapp;
+package com.mewtwo2.settlethescore.activities;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.myfirstapp.R;
 
 public class ResultsActivity extends AppCompatActivity {
 

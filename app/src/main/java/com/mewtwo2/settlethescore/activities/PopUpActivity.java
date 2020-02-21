@@ -1,4 +1,4 @@
-package com.example.myfirstapp;
+package com.mewtwo2.settlethescore.activities;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.text.method.ScrollingMovementMethod;
 import android.widget.TextView;
 
+import com.example.myfirstapp.R;
 import com.mewtwo2.settlethescore.registration.GameInfo;
 
 public class PopUpActivity extends AppCompatActivity {
