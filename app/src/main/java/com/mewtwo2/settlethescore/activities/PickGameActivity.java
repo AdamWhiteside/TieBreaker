@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
-import com.example.myfirstapp.R;
 import com.mewtwo2.settlethescore.ui.PickGameAdapter;
 
 public class PickGameActivity extends AppCompatActivity {

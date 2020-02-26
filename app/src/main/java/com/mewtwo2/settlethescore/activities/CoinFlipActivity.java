@@ -13,7 +13,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.example.myfirstapp.R;
 import com.mewtwo2.settlethescore.registration.GameRegistry;
 
 import java.util.Random;

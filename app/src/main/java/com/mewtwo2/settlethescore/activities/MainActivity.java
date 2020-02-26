@@ -6,7 +6,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.myfirstapp.R;
 import com.mewtwo2.settlethescore.registration.GameInfo;
 import com.mewtwo2.settlethescore.registration.GameRegistry;
 

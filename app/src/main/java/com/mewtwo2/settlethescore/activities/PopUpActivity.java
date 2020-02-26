@@ -8,7 +8,6 @@ import android.widget.Button;
 import android.text.method.ScrollingMovementMethod;
 import android.widget.TextView;
 
-import com.example.myfirstapp.R;
 import com.mewtwo2.settlethescore.registration.GameInfo;
 
 public class PopUpActivity extends AppCompatActivity {
