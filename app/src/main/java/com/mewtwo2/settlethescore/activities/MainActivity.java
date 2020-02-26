@@ -36,7 +36,6 @@ public class MainActivity extends AppCompatActivity {
         btnPickGame.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Toast.makeText(getApplicationContext(),"Pick Game Clicked",Toast.LENGTH_SHORT).show();
                 openPickGameActivity();
             }
         });
