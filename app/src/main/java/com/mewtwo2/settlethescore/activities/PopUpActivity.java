@@ -19,6 +19,7 @@ public class PopUpActivity extends AppCompatActivity {
     private boolean playerOneTurn;
     private int playerOneScore;
     private GameInfo gameToLaunch;
+    private GameInfo type;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,19 +33,30 @@ public class PopUpActivity extends AppCompatActivity {
             playerOneTurn = extras.getBoolean("playerOneTurn");
             playerOneScore = extras.getInt("playerOneScore");
             gameToLaunch = (GameInfo)extras.getSerializable("GameInfo");
-            System.out.println("PopUpActivity playerOneTurn = " + playerOneTurn);
-            System.out.println("PopUpActivity playerOneScore = " + playerOneScore);
         }
 
+        //set action bar text to game being played
+        getSupportActionBar().setTitle(gameToLaunch.nameID);
+        //set instruction text view
         instructions.setText(gameToLaunch.instructionsID);
 
         player_text_view = (TextView) findViewById(R.id.player_text);
-        if (playerOneTurn == true) {
-            player_text_view.setText(R.string.player_one);
+
+        //if game is interactive, hide player text view
+        if (gameToLaunch.gameType == GameInfo.GameType.Interactive)
+        {
+            player_text_view.setVisibility(View.INVISIBLE);
         }
+        //display player text view
         else {
-            player_text_view.setText(R.string.player_two);
+            if (playerOneTurn == true) {
+                player_text_view.setText(R.string.player_one);
+            }
+            else {
+                player_text_view.setText(R.string.player_two);
+            }
         }
+
         ready_btn = (Button) findViewById(R.id.button_ready);
         ready_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,10 +68,10 @@ public class PopUpActivity extends AppCompatActivity {
 
     private void playerReady()
     {
-        openCoinFlipActivity();
+        openGameActivity();
     }
 
-    public void openCoinFlipActivity() {
+    public void openGameActivity() {
         Intent intent = new Intent(this, gameToLaunch.activity);
         intent.putExtra("playerOneTurn", playerOneTurn);
         intent.putExtra("playerOneScore", playerOneScore);
