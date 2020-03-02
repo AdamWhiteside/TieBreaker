@@ -1,4 +1,4 @@
-package com.example.myfirstapp;
+package com.mewtwo2.settlethescore.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -25,11 +25,6 @@ public class CoinFlipActivity extends AppCompatActivity {
     private Button heads_btn;
     private Button tails_btn;
     private String choice;
-
-    //public static vars are referenced in other classes
-    //public static boolean playerOneTurn = true;
-    //public static int playerOneScore = 0;
-    //public static int playerTwoScore = 0;
 
     private boolean playerOneTurn = true;
     private int playerOneScore = 0;

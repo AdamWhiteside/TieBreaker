@@ -1,4 +1,4 @@
-package com.example.myfirstapp;
+package com.mewtwo2.settlethescore.activities;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;

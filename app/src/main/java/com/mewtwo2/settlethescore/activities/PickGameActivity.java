@@ -1,12 +1,13 @@
-package com.example.myfirstapp;
+package com.mewtwo2.settlethescore.activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
-public class PickGame extends AppCompatActivity {
+import com.mewtwo2.settlethescore.ui.PickGameAdapter;
+
+public class PickGameActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager layoutManager;
