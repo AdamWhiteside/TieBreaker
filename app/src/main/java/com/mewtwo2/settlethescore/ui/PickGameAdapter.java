@@ -1,4 +1,4 @@
-package com.example.myfirstapp;
+package com.mewtwo2.settlethescore.ui;
 
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.mewtwo2.settlethescore.activities.PopUpActivity;
 import com.mewtwo2.settlethescore.registration.GameInfo;
 import com.mewtwo2.settlethescore.registration.GameRegistry;
 
