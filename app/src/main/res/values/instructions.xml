@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="instruction_coin_flip">
-        Coin flipping is used to decide which end of the field the teams will play to and/or which team gets first use of the ball, or similar questions in football matches, American football games, Australian rules football, volleyball, and other sports requiring such decisions.
+        Each player chooses heads or tails. A coin will flip revealing either a purple side or a gold side, representing heads or tails respectively. If the player is correct they get one point.
     </string>
     <string name='instruction_tic_tac_toe'>
-        We all know how to play. :)
+        On a 3x3 grid each player takes turns placing their symbol in order to try and get three in a row. Whoever gets three in a row first wins and gets a point. If the board fills and no one gets 3 in a row, the result is a draw. Player 1 is X, Player 2 is O
     </string>
 </resources>
