@@ -96,7 +96,7 @@ public class CoinFlipActivity extends AppCompatActivity {
             public void onAnimationEnd(Animation animation) {
 
                 if (RANDOM.nextFloat() > 0.5f) {
-                    coin.setImageResource(R.drawable.tails);
+                    coin.setImageResource(R.drawable.purplecoin);
                     //P1 guessed incorrectly
                     if (choice == "heads" && playerOneTurn == true) {
                         Toast.makeText(getApplicationContext(), R.string.sorry_tails_wins, Toast.LENGTH_SHORT).show();
@@ -118,7 +118,7 @@ public class CoinFlipActivity extends AppCompatActivity {
                     }
                 }
                 else {
-                    coin.setImageResource(R.drawable.heads);
+                    coin.setImageResource(R.drawable.purplecoin);
                     //P1 guessed correctly
                     if (choice == "heads" && playerOneTurn == true) {
                         Toast.makeText(getApplicationContext(), R.string.heads_wins, Toast.LENGTH_SHORT).show();

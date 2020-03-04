@@ -62,14 +62,14 @@ public class MainActivity extends AppCompatActivity {
                 CoinFlipActivity.class,
                 R.string.name_coin_flip,
                 R.string.instruction_coin_flip,
-                R.drawable.heads,
+                R.drawable.cointosslogo,
                 GameInfo.GameType.Noninteractive);
 
         GameRegistry.RegisterGame(
                 TicTacToeActivity.class,
                 R.string.name_tic_tac_toe,
                 R.string.instruction_tic_tac_toe,
-                R.drawable.tails,
+                R.drawable.tictactoelogo,
                 GameInfo.GameType.Interactive);
     }
 
