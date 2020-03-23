@@ -14,22 +14,15 @@
         android:layout_centerHorizontal="true"
         android:text="" />
 
-    <TextView
-        android:id="@+id/tv_info"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="Start Tapping" />
-
     <ImageView
         android:id="@+id/iv_tap"
         android:layout_width="300dp"
         android:layout_height="300dp"
         android:layout_centerInParent="true"
         android:background="#00FFFFFF"
-        android:src="@drawable/arcade-buttons-png-18"
+        android:src="@drawable/arcade"
         android:visibility="visible"
-        app:srcCompat="@drawable/arcadebutton"
-        tools:srcCompat="@drawable/arcadebutton"
+        app:srcCompat="@drawable/arcade"
+        tools:srcCompat="@drawable/arcade"
         tools:visibility="visible" />
 </RelativeLayout>
