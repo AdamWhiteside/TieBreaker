@@ -27,10 +27,9 @@
         android:layout_height="300dp"
         android:layout_centerInParent="true"
         android:background="#00FFFFFF"
-        android:foreground="@drawable/arcade-buttons-png-18"
         android:src="@drawable/arcade-buttons-png-18"
         android:visibility="visible"
-        app:srcCompat="@drawable/arcade-buttons-png-18"
-        tools:srcCompat="@drawable/arcade-buttons-png-18"
+        app:srcCompat="@drawable/arcadebutton"
+        tools:srcCompat="@drawable/arcadebutton"
         tools:visibility="visible" />
 </RelativeLayout>
