@@ -113,7 +113,7 @@ public class CoinFlipActivity extends AppCompatActivity {
                     }
                 }
                 else {
-                    coin.setImageResource(R.drawable.purplecoin);
+                    coin.setImageResource(R.drawable.yellowcoin);
                     //P1 guessed correctly
                     if (choice == "heads" && playerOneTurn == true) {
                         Toast.makeText(getApplicationContext(), R.string.heads_wins, Toast.LENGTH_SHORT).show();
