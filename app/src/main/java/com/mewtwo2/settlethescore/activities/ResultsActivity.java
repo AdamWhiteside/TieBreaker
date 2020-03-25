@@ -10,7 +10,7 @@ import android.widget.TextView;
 import com.mewtwo2.settlethescore.registration.GameInfo;
 import com.mewtwo2.settlethescore.registration.GameRegistry;
 
-public class ResultsActivity extends AppCompatActivity {
+public class ResultsActivity extends GameActivity {
 
     TextView player_one_score_text_view;
     TextView player_two_score_text_view;
