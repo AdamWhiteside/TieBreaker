@@ -18,6 +18,8 @@ public class ResultsActivity extends AppCompatActivity {
     Button new_game;
     private int playerOneScore;
     private int playerTwoScore;
+    private String player_one_choice;
+    private String player_two_choice;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +31,21 @@ public class ResultsActivity extends AppCompatActivity {
         if (extras != null) {
             playerOneScore = extras.getInt("playerOneScore");
             playerTwoScore = extras.getInt("playerTwoScore");
+            player_one_choice = extras.getString("player_one_choice");
+            player_two_choice = extras.getString("player_two_choice");
+        }
+
+        if (player_one_choice.equals(player_two_choice))
+        {
+            playerOneScore = playerTwoScore = 0;
+        }
+        else if ((player_one_choice.equals("rock") && player_two_choice.equals("paper")) || (player_one_choice.equals("scissors") && player_two_choice.equals("rock")) || (player_one_choice.equals("paper") && player_two_choice.equals("scissors")))
+        {
+            playerTwoScore = 1;
+        }
+        else
+        {
+            playerTwoScore = 1;
         }
 
         player_one_score_text_view = (TextView) findViewById(R.id.player_one_score);

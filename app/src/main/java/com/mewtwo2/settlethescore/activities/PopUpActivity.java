@@ -19,6 +19,8 @@ public class PopUpActivity extends AppCompatActivity {
     private int playerOneScore;
     private GameInfo gameToLaunch;
     private GameInfo type;
+    private String player_one_choice;
+    private String player_two_choice;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +34,8 @@ public class PopUpActivity extends AppCompatActivity {
             playerOneTurn = extras.getBoolean("playerOneTurn");
             playerOneScore = extras.getInt("playerOneScore");
             gameToLaunch = (GameInfo)extras.getSerializable("GameInfo");
+            player_one_choice = extras.getString("player_one_choice");
+            player_two_choice = extras.getString("player_two_choice");
         }
 
         //set action bar text to game being played

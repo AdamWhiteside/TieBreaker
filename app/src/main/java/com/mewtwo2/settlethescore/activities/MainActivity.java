@@ -70,6 +70,13 @@ public class MainActivity extends AppCompatActivity {
                 R.string.instruction_tic_tac_toe,
                 R.drawable.tictactoelogo,
                 GameInfo.GameType.Interactive);
+
+        GameRegistry.RegisterGame(
+                RockPaperScissorsActivity.class,
+                R.string.name_rock_paper_scissors,
+                R.string.instruction_coin_flip,
+                R.drawable.rpclogo,
+                GameInfo.GameType.Noninteractive);
     }
 
 }

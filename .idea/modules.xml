@@ -3,7 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="settle-the-score/app" />
-      <module fileurl="file://$PROJECT_DIR$/settle-the-score.iml" filepath="$PROJECT_DIR$/settle-the-score.iml" group="settle-the-score" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/settle-the-score.iml" filepath="$PROJECT_DIR$/.idea/settle-the-score.iml" group="settle-the-score" />
     </modules>
   </component>
 </project>

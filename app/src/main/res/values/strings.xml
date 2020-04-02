@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Settle The Score</string>
     <string name="pick_a_game">Pick A Game</string>
+
     <string name="flip_btn">Flip!</string>
     <string name="heads_wins">Gold Wins!</string>
     <string name="sorry_heads_wins">Sorry, Gold Wins!</string>
@@ -20,6 +21,14 @@
     <string name="player_one_wins">Player 1 wins!</string>
     <string name="player_two_wins">Player 2 wins!</string>
 
+    <string name="rock_btn">Rock</string>
+    <string name="paper_btn">Paper</string>
+    <string name="scissors_btn">Scissors</string>
+    <string name="picked_rock">You picked rock!</string>
+    <string name="picked_paper">You picked paper!</string>
+    <string name="picked_scissors">You picked scissors!</string>
+
     <string name="name_coin_flip">Coin Flip</string>
+    <string name="name_rock_paper_scissors">Rock Paper Scissors</string>
     <string name="name_tic_tac_toe">Tic Tac Toe</string>
 </resources>
