@@ -23,8 +23,8 @@ public class RockPaperScissorsActivity extends AppCompatActivity {
     private Button rock_btn;
     private Button paper_btn;
     private Button scissors_btn;
-    private String player_one_choice;
-    private String player_two_choice;
+    private String player_one_choice = "";
+    private String player_two_choice = "";
     private String choice;
 
     private boolean playerOneTurn = true;
@@ -143,7 +143,7 @@ public class RockPaperScissorsActivity extends AppCompatActivity {
                     handler.postDelayed(new Runnable() {
                         @Override
                         public void run() {
-                            //player 2 must click ready to flip
+                            //player 2 must click ready
                             openPopUpActivity();
                         }
                     }, 2000);

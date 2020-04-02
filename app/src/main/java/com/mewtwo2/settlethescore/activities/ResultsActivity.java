@@ -34,18 +34,14 @@ public class ResultsActivity extends AppCompatActivity {
             player_one_choice = extras.getString("player_one_choice");
             player_two_choice = extras.getString("player_two_choice");
         }
-
-        if (player_one_choice.equals(player_two_choice))
-        {
-            playerOneScore = playerTwoScore = 0;
-        }
-        else if ((player_one_choice.equals("rock") && player_two_choice.equals("paper")) || (player_one_choice.equals("scissors") && player_two_choice.equals("rock")) || (player_one_choice.equals("paper") && player_two_choice.equals("scissors")))
-        {
-            playerTwoScore = 1;
-        }
-        else
-        {
-            playerTwoScore = 1;
+        if(player_one_choice != null & player_two_choice != null) {
+            if (player_one_choice.equals(player_two_choice)) {
+                playerOneScore = playerTwoScore = 0;
+            } else if ((player_one_choice.equals("rock") && player_two_choice.equals("paper")) || (player_one_choice.equals("scissors") && player_two_choice.equals("rock")) || (player_one_choice.equals("paper") && player_two_choice.equals("scissors"))) {
+                playerTwoScore = 1;
+            } else {
+                playerOneScore = 1;
+            }
         }
 
         player_one_score_text_view = (TextView) findViewById(R.id.player_one_score);
