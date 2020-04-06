@@ -23,11 +23,12 @@ public class RockPaperScissorsActivity extends GameActivity {
     private Button rock_btn;
     private Button paper_btn;
     private Button scissors_btn;
-    private String player_one_choice = "";
-    private String player_two_choice = "";
     private String choice;
 
     private boolean playerOneTurn = true;
+
+    private static String player_one_choice = "";
+    private static String player_two_choice = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +39,12 @@ public class RockPaperScissorsActivity extends GameActivity {
         if (extras != null) {
             playerOneTurn = extras.getBoolean("playerOneTurn");
             player_one_choice = extras.getString("player_one_choice");
+
+            if(playerOneTurn)
+            {
+                player_one_choice = "";
+                player_two_choice = "";
+            }
         }
 
         //get image id
@@ -177,8 +184,22 @@ public class RockPaperScissorsActivity extends GameActivity {
 
     public void openResultsActivity() {
         Intent intent = new Intent(this,ResultsActivity.class);
-        intent.putExtra("player_one_choice", player_one_choice);
-        intent.putExtra("player_two_choice", player_two_choice);
+
+        if(player_one_choice != null & player_two_choice != null) {
+            if (player_one_choice.equals(player_two_choice)) {
+                intent.putExtra("playerOneScore", 0);
+                intent.putExtra("playerTwoScore", 0);
+            } else if ((player_one_choice.equals("rock") && player_two_choice.equals("paper")) || (player_one_choice.equals("scissors") && player_two_choice.equals("rock")) || (player_one_choice.equals("paper") && player_two_choice.equals("scissors"))) {
+
+                intent.putExtra("playerOneScore", 0);
+                intent.putExtra("playerTwoScore", 1);
+            } else {
+
+                intent.putExtra("playerOneScore", 1);
+                intent.putExtra("playerTwoScore", 0);
+            }
+        }
+
         startActivity(intent);
     }
 }
