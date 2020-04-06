@@ -17,7 +17,7 @@ import com.mewtwo2.settlethescore.registration.GameRegistry;
 
 import java.util.Random;
 
-public class CoinFlipActivity extends AppCompatActivity {
+public class CoinFlipActivity extends GameActivity {
 
     public static final Random RANDOM = new Random();
     private Handler handler = new Handler();

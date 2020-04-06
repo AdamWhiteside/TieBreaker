@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import com.mewtwo2.settlethescore.registration.GameInfo;
 
-public class PopUpActivity extends AppCompatActivity {
+public class PopUpActivity extends GameActivity {
 
     private Button ready_btn;
     private TextView player_text_view;

@@ -11,6 +11,9 @@ import com.mewtwo2.settlethescore.registration.GameRegistry;
 
 public class MainActivity extends AppCompatActivity {
 
+    //Ensures games are not registered more than once.
+    private static boolean registrationComplete = false;
+
     Button btnSettleTheScore;
     Button btnPickGame;
     private boolean playerOneTurn = true;
@@ -56,6 +59,9 @@ public class MainActivity extends AppCompatActivity {
 
     void registerGames()
     {
+        if (registrationComplete)
+            return;
+
         //Must add your game here for it to work in the system
         GameRegistry.RegisterGame(
                 CoinFlipActivity.class,
@@ -77,6 +83,8 @@ public class MainActivity extends AppCompatActivity {
                 R.string.instruction_coin_flip,
                 R.drawable.rpclogo,
                 GameInfo.GameType.Noninteractive);
+
+        registrationComplete = true;
     }
 
 }

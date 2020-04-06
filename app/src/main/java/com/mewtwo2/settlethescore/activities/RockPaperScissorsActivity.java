@@ -15,7 +15,7 @@ import android.widget.Toast;
 
 import com.mewtwo2.settlethescore.registration.GameRegistry;
 
-public class RockPaperScissorsActivity extends AppCompatActivity {
+public class RockPaperScissorsActivity extends GameActivity {
 
     private Handler handler = new Handler();
 
