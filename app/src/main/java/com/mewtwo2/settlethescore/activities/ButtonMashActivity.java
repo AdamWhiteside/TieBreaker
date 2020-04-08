@@ -32,7 +32,6 @@ public class ButtonMashActivity extends AppCompatActivity{
 
         arcadeButton = findViewById(R.id.iv_tap);
         result = findViewById(R.id.tv_result);
-        info = findViewById(R.id.tv_info);
 
         final SharedPreferences preferences = getSharedPreferences("PREFS", 0);
         bestResult = preferences.getInt("highScore", 0);
@@ -50,11 +49,12 @@ public class ButtonMashActivity extends AppCompatActivity{
                     currentTaps++;
                 }
             }
+        });
 
             timer = new CountDownTimer(10000, 1000) {
                 @Override
                 public void onTick(long millisUntilFinished) {
-                    long timeTillEnd = millisUntilFinished / 1000) + 1;
+                    long timeTillEnd = (millisUntilFinished / 1000) + 1;
                     result.setText("Time Remaining: " + timeTillEnd);
                 }
                 @Override
@@ -80,10 +80,8 @@ public class ButtonMashActivity extends AppCompatActivity{
                             info.setText("Start Tapping");
                             currentTaps = 0;
                         }
-                    }, 2000)
+                    }, 2000);
                 }
-            }
-        });
-
+            };
     }
 }
