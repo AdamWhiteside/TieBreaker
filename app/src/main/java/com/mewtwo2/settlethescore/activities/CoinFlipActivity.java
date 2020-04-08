@@ -17,7 +17,7 @@ import com.mewtwo2.settlethescore.registration.GameRegistry;
 
 import java.util.Random;
 
-public class CoinFlipActivity extends AppCompatActivity {
+public class CoinFlipActivity extends GameActivity {
 
     public static final Random RANDOM = new Random();
     private Handler handler = new Handler();
@@ -113,7 +113,7 @@ public class CoinFlipActivity extends AppCompatActivity {
                     }
                 }
                 else {
-                    coin.setImageResource(R.drawable.purplecoin);
+                    coin.setImageResource(R.drawable.yellowcoin);
                     //P1 guessed correctly
                     if (choice == "heads" && playerOneTurn == true) {
                         Toast.makeText(getApplicationContext(), R.string.heads_wins, Toast.LENGTH_SHORT).show();
