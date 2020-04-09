@@ -84,6 +84,13 @@ public class MainActivity extends AppCompatActivity {
                 R.drawable.rpclogo,
                 GameInfo.GameType.Noninteractive);
 
+        GameRegistry.RegisterGame(
+                RouletteActivity.class,
+                R.string.name_roulette,
+                R.string.instruction_coin_flip,
+                R.drawable.roulettelogo,
+                GameInfo.GameType.Noninteractive);
+
         registrationComplete = true;
     }
 
