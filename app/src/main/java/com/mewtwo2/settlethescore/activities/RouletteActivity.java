@@ -72,7 +72,7 @@ public class RouletteActivity extends GameActivity {
 
     @OnClick(R.id.spinBtn)
     public void spin(View v) {
-        //spinBtn.setEnabled(false);
+        spinBtn.setEnabled(false);
         degreeOld = degree % 360;
         // we calculate random angle for rotation of our wheel
         degree = RANDOM.nextInt(360) + 720;
