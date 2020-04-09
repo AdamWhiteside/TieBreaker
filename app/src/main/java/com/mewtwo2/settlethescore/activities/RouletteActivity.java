@@ -23,7 +23,7 @@ import butterknife.OnClick;
 public class RouletteActivity extends GameActivity {
 
     // sectors of our wheel (look at the image to see the sectors)
-    private static final int[] sectors = { 32, 15,
+    private static final int[] sectors = { 15,
             19, 4, 21, 2, 25, 17, 34,
             6, 27,13, 36, 11, 30, 8,
             23, 10, 5, 24, 16, 33,
@@ -47,9 +47,9 @@ public class RouletteActivity extends GameActivity {
     // We create a Random instance to make our wheel spin randomly
     private static final Random RANDOM = new Random();
     private int degree = 0, degreeOld = 0;
-    // We have 37 sectors on the wheel, we divide 360 by this value to have angle for each sector
+    // We have 36 sectors on the wheel, we divide 360 by this value to have angle for each sector
     // we divide by 2 to have a half sector
-    private static final float HALF_SECTOR = 360f / 37f / 2f;
+    private static final float HALF_SECTOR = 360f / 36f / 2f;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
