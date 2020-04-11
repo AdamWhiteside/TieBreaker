@@ -6,4 +6,7 @@
     <string name='instruction_tic_tac_toe'>
         On a 3x3 grid each player takes turns placing their symbol in order to try and get three in a row. Whoever gets three in a row first wins and gets a point. If the board fills and no one gets 3 in a row, the result is a draw. Player 1 is X, Player 2 is O
     </string>
+    <string name='instruction_pong'>
+        Play the pong thing.
+    </string>
 </resources>

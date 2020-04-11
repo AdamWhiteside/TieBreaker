@@ -77,6 +77,13 @@ public class MainActivity extends AppCompatActivity {
                 R.drawable.tictactoelogo,
                 GameInfo.GameType.Interactive);
 
+        GameRegistry.RegisterGame(
+                PongActivity.class,
+                R.string.name_pong,
+                R.string.instruction_pong,
+                R.drawable.logo,
+                GameInfo.GameType.Interactive);
+
         registrationComplete = true;
     }
 

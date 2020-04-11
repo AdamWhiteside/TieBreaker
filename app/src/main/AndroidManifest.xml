@@ -13,6 +13,7 @@
         <activity android:name=".PickGameActivity" />
         <activity android:name=".ResultsActivity" />
         <activity android:name=".PopUpActivity" />
+        <activity android:name=".PongActivity" />
         <activity android:name=".TicTacToeActivity" />
         <activity android:name=".CoinFlipActivity" />
         <activity android:name=".MainActivity">
