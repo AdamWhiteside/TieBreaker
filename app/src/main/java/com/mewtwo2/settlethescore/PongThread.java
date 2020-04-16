@@ -6,43 +6,48 @@ import android.view.SurfaceHolder;
 import com.mewtwo2.settlethescore.ui.PongView;
 
 public class PongThread extends Thread {
-    public static Canvas canvas;
-
     private final SurfaceHolder surfaceHolder;
     private final PongView pongView;
+    private float targetFPS;
 
     private boolean running;
 
-    public PongThread(SurfaceHolder surfaceHolder, PongView pongView) {
+    public PongThread(SurfaceHolder surfaceHolder, PongView pongView, float targetFPS) {
         super();
 
         this.surfaceHolder = surfaceHolder;
         this.pongView = pongView;
+        this.targetFPS = targetFPS;
     }
 
     public void startThread() {
-        start();
         running = true;
+        start();
     }
 
     public void stopThread() {
-        try {
-            running = false;
-            join();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        running = false;
     }
+
 
     @Override
     public void run() {
+        Canvas canvas;
+        long lastFrameTime = System.currentTimeMillis();
+        long targetDeltaTime = (long)(1000 / targetFPS);
+
         while(running) {
+            //Calculate time passed between frames in milliseconds.
+            long currentFrameTime = System.currentTimeMillis();
+            //Calculate delta time in seconds
+            float deltaTime = (currentFrameTime - lastFrameTime)/ 1000f;
+
             canvas = null;
 
             try {
                 canvas = this.surfaceHolder.lockCanvas();
                 synchronized (surfaceHolder) {
-                    this.pongView.update();
+                    this.pongView.update(deltaTime);
                     this.pongView.draw(canvas);
                 }
             } catch (Exception e) {
@@ -57,6 +62,22 @@ public class PongThread extends Thread {
                     }
                 }
             }
+
+            //Remember what time this frame started.
+            lastFrameTime = currentFrameTime;
+
+            //Sleep until next frame should begin.
+            long timeRemaining = targetDeltaTime - (System.currentTimeMillis() - currentFrameTime);
+            if(timeRemaining > 0.0)
+            {
+                try {
+                    sleep(timeRemaining);
+                } catch(InterruptedException e) {
+                    e.printStackTrace();
+                }
+
+            }
+
         }
     }
 }

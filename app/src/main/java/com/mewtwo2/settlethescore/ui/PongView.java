@@ -1,11 +1,15 @@
 package com.mewtwo2.settlethescore.ui;
 
 import android.content.Context;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
 import android.support.annotation.IntDef;
 import android.view.SurfaceView;
 import android.view.SurfaceHolder;
 import android.widget.Toast;
 
+import com.mewtwo2.settlethescore.PongGame;
 import com.mewtwo2.settlethescore.PongThread;
 
 public class PongView extends SurfaceView implements SurfaceHolder.Callback {
@@ -18,11 +22,10 @@ public class PongView extends SurfaceView implements SurfaceHolder.Callback {
 
         getHolder().addCallback(this);
 
-        thread = new PongThread(getHolder(), this);
         setFocusable(true);
     }
 
-    public void update()
+    public void update(float deltaTime)
     {
 
     }
@@ -34,6 +37,7 @@ public class PongView extends SurfaceView implements SurfaceHolder.Callback {
 
     @Override
     public void surfaceCreated(SurfaceHolder holder) {
+        thread = new PongThread(getHolder(), this, getDisplay().getRefreshRate());
         thread.startThread();
         Toast.makeText(getContext(), "Surface Created", Toast.LENGTH_SHORT ).show();
     }
@@ -42,5 +46,18 @@ public class PongView extends SurfaceView implements SurfaceHolder.Callback {
     public void surfaceDestroyed(SurfaceHolder holder) {
         thread.stopThread();
         Toast.makeText(getContext(), "Surface Destroyed", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void draw(Canvas canvas)
+    {
+        super.draw(canvas);
+
+        if(canvas != null) {
+            canvas.drawColor(Color.WHITE);
+            Paint paint = new Paint();
+            paint.setColor(Color.rgb(120, 200, 0));
+            canvas.drawRect(100, 100, 200, 200, paint);
+        }
     }
 }

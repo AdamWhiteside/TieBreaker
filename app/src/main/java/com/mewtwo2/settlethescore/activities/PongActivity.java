@@ -7,7 +7,7 @@ import android.view.WindowManager;
 
 import com.mewtwo2.settlethescore.ui.PongView;
 
-public class PongActivity extends Activity {
+public class PongActivity extends GameActivity {
 
     @Override
     public void onCreate(Bundle savedInstanceState)
