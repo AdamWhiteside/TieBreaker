@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".RockPaperScissorsActivity"></activity>
+        <activity android:name=".RouletteActivity"></activity>
+        <activity android:name=".RockPaperScissorsActivity" />
         <activity android:name=".PickGameActivity" />
         <activity android:name=".ResultsActivity" />
         <activity android:name=".PopUpActivity" />
