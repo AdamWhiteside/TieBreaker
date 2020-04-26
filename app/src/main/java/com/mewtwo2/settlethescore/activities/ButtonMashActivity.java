@@ -25,6 +25,10 @@ public class ButtonMashActivity extends AppCompatActivity{
 
     int bestResult = 0;
 
+    int playerOneScore = 0;
+    int playerTwoScore = 0;
+    int turn = 0;
+    boolean playerOneTurn = true;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,7 +67,13 @@ public class ButtonMashActivity extends AppCompatActivity{
                     gameStarted = false;
                     info.setText("Game Over");
                     result.setText("Current Taps: " + currentTaps);
-
+                    if(turn == 0)
+                        playerOneScore = currentTaps;
+                    else if (turn == 1)
+                        playerTwoScore = currentTaps;
+                    else
+                        openResultsActivity();
+                    turn++;
                     if(currentTaps > bestResult) {
                         bestResult = currentTaps;
 
@@ -72,7 +82,28 @@ public class ButtonMashActivity extends AppCompatActivity{
                         editor.putInt("highScore", bestResult);
                         editor.apply();
                     }
+                   /* if (playerOneTurn == true) {
+                        //now it is player 2's turn
+                        playerOneTurn = false;
 
+                        //delay for 2 seconds
+                        Handler.postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                //player 2 must click ready to flip
+                                openPopUpActivity();
+                            }
+                        }, 2000);
+                    }
+                    else {
+                        //delay for 2 seconds
+                        Handler.postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                openResultsActivity();
+                            }
+                        }, 2000);
+                    }*/
                     new Handler().postDelayed(new Runnable() {
                         @Override
                         public void run() {
@@ -84,4 +115,19 @@ public class ButtonMashActivity extends AppCompatActivity{
                 }
             };
     }
+    public void openPopUpActivity() {
+        Intent intent = new Intent(this,PopUpActivity.class);
+        intent.putExtra("playerOneTurn", playerOneTurn);
+        intent.putExtra("playerOneScore", playerOneScore);
+        intent.putExtra("GameInfo", GameRegistry.getGameInfo(CoinFlipActivity.class));
+        startActivity(intent);
+    }
+
+    public void openResultsActivity() {
+        Intent intent = new Intent(this,ResultsActivity.class);
+        intent.putExtra("playerOneScore", playerOneScore);
+        intent.putExtra("playerTwoScore", playerTwoScore);
+        startActivity(intent);
+    }
 }
+
