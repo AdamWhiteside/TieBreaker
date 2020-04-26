@@ -19,6 +19,7 @@ public class PopUpActivity extends GameActivity {
     private int playerOneScore;
     private GameInfo gameToLaunch;
     private GameInfo type;
+    private String player_one_choice;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +33,7 @@ public class PopUpActivity extends GameActivity {
             playerOneTurn = extras.getBoolean("playerOneTurn");
             playerOneScore = extras.getInt("playerOneScore");
             gameToLaunch = (GameInfo)extras.getSerializable("GameInfo");
+            player_one_choice = extras.getString("player_one_choice");
         }
 
         //set action bar text to game being played
@@ -74,6 +76,7 @@ public class PopUpActivity extends GameActivity {
         Intent intent = new Intent(this, gameToLaunch.activity);
         intent.putExtra("playerOneTurn", playerOneTurn);
         intent.putExtra("playerOneScore", playerOneScore);
+        intent.putExtra("player_one_choice", player_one_choice);
         startActivity(intent);
     }
 }

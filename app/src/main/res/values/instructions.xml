@@ -4,6 +4,12 @@
         Each player chooses heads or tails. A coin will flip revealing either a purple side or a gold side, representing heads or tails respectively. If the player is correct they get one point.
     </string>
     <string name='instruction_tic_tac_toe'>
-        On a 3x3 grid each player takes turns placing their symbol in order to try and get three in a row. Whoever gets three in a row first wins and gets a point. If the board fills and no one gets 3 in a row, the result is a draw. Player 1 is X, Player 2 is O
+        On a 3x3 grid each player takes turns placing their symbol in order to try and get three in a row. Whoever gets three in a row first wins and gets a point. If the board fills and no one gets 3 in a row, the result is a draw. Player 1 is X, Player 2 is O.
+    </string>
+    <string name='instruction_rock_paper_scissors'>
+        Each player chooses rock, paper, or scissors. Rock beats scissors, paper beats rock, scissors beats paper. The winner gets a point.
+    </string>
+    <string name='instruction_roulette'>
+        Each player spins the roulette wheel. The pointer will land at a number on the wheel at the end of the spin. Whoever gets the highest number wins.
     </string>
 </resources>

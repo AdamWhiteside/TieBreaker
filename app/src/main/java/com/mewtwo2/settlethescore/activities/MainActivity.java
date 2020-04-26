@@ -77,6 +77,20 @@ public class MainActivity extends AppCompatActivity {
                 R.drawable.tictactoelogo,
                 GameInfo.GameType.Interactive);
 
+        GameRegistry.RegisterGame(
+                RockPaperScissorsActivity.class,
+                R.string.name_rock_paper_scissors,
+                R.string.instruction_rock_paper_scissors,
+                R.drawable.rpclogo,
+                GameInfo.GameType.Noninteractive);
+
+        GameRegistry.RegisterGame(
+                RouletteActivity.class,
+                R.string.name_roulette,
+                R.string.instruction_roulette,
+                R.drawable.roulettelogo,
+                GameInfo.GameType.Noninteractive);
+
         registrationComplete = true;
     }
 
