@@ -4,9 +4,12 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.content.Intent;
+import android.widget.Toast;
+import android.os.Handler;
 
 //import androidx.appcompat.app.AppCompatActivity;
 
@@ -15,17 +18,22 @@ import com.mewtwo2.settlethescore.registration.GameRegistry;
 import java.util.Random;
 
 public class QuickDrawActivity extends GameActivity {
+    private Handler handler = new Handler();
     public boolean topTapped = false;
     public boolean botTapped = false;
     private boolean playerOneTurn = true;
     private int playerOneScore = 0;
     private int playerTwoScore = 0;
+    private ImageButton QuickButton1;
+    private ImageButton QuickButton2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quickdraw);
+        QuickButton1 = findViewById(R.id.QuickButton1);
+        QuickButton2 = findViewById(R.id.QuickButton2);
         /*
 
         // Get the Intent that started this activity and extract the string
@@ -38,6 +46,46 @@ public class QuickDrawActivity extends GameActivity {
         */
 
         startTimer();
+
+        QuickButton1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                playerOneScore = 1;
+
+                //disable button presses
+                QuickButton1.setEnabled(false);
+                QuickButton2.setEnabled(false);
+
+                Toast.makeText(getApplicationContext(), R.string.player_one_wins, Toast.LENGTH_SHORT).show();
+
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        openResultsActivity();
+                    }
+                }, 2000);
+            }
+        });
+
+        QuickButton2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                playerTwoScore = 1;
+
+                //disable button presses
+                QuickButton1.setEnabled(false);
+                QuickButton2.setEnabled(false);
+
+                Toast.makeText(getApplicationContext(), R.string.player_two_wins, Toast.LENGTH_SHORT).show();
+
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        openResultsActivity();
+                    }
+                }, 2000);
+            }
+        });
     }
 
     //Declare timer
@@ -121,10 +169,12 @@ public class QuickDrawActivity extends GameActivity {
     }
 
     public void topClick(View view){
-        topTapped = true;
+        playerOneScore = 1;
     }
 
 
+
+/*
     public void openPopUpActivity() {
         Intent intent = new Intent(this,PopUpActivity.class);
         intent.putExtra("playerOneTurn", playerOneTurn);
@@ -132,6 +182,8 @@ public class QuickDrawActivity extends GameActivity {
         intent.putExtra("GameInfo", GameRegistry.getGameInfo(QuickDrawActivity.class));
         startActivity(intent);
     }
+
+ */
 
     public void openResultsActivity() {
         Intent intent = new Intent(this,ResultsActivity.class);
