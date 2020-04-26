@@ -58,7 +58,7 @@ public class RouletteActivity extends GameActivity {
         ButterKnife.bind(this);
 
         Bundle extras = getIntent().getExtras();
-        if (extras != null) {
+            if (extras != null) {
             playerOneTurn = extras.getBoolean("playerOneTurn");
             playerOneScore = extras.getInt("playerOneScore");
 
