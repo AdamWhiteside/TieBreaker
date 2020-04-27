@@ -56,7 +56,7 @@ public class QuickDrawActivity extends GameActivity {
                 QuickButton1.setEnabled(false);
                 QuickButton2.setEnabled(false);
 
-                Toast.makeText(getApplicationContext(), R.string.player_one_wins, Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), R.string.player_one_pressed, Toast.LENGTH_SHORT).show();
 
                 handler.postDelayed(new Runnable() {
                     @Override
@@ -76,7 +76,7 @@ public class QuickDrawActivity extends GameActivity {
                 QuickButton1.setEnabled(false);
                 QuickButton2.setEnabled(false);
 
-                Toast.makeText(getApplicationContext(), R.string.player_two_wins, Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), R.string.player_two_pressed, Toast.LENGTH_SHORT).show();
 
                 handler.postDelayed(new Runnable() {
                     @Override
