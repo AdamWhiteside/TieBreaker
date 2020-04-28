@@ -1,5 +1,6 @@
 package com.mewtwo2.settlethescore.activities;
 
+import android.media.Image;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
@@ -28,6 +29,10 @@ public class QuickDrawActivity extends GameActivity {
     private ImageButton QuickButton2;
     private ImageButton CoverButton1;
     private ImageButton CoverButton2;
+    private ImageView PlayerOneWinsImage;
+    private ImageView PlayerTwoWinsImage;
+    private ImageView PlayerOneMisfire;
+    private ImageView PlayerTwoMisfire;
 
 
 
@@ -40,6 +45,16 @@ public class QuickDrawActivity extends GameActivity {
         QuickButton2 = findViewById(R.id.QuickButton2);
         CoverButton1 = findViewById(R.id.CoverButton1);
         CoverButton2 = findViewById(R.id.CoverButton2);
+        PlayerOneWinsImage = findViewById(R.id.PlayerOneWinsImage);
+        PlayerTwoWinsImage = findViewById(R.id.PlayerTwoWinsImage);
+        PlayerOneMisfire = findViewById(R.id.PlayerOneMisfire);
+        PlayerTwoMisfire = findViewById(R.id.PlayerTwoMisfire);
+
+        PlayerOneWinsImage.setVisibility(View.INVISIBLE);
+        PlayerTwoWinsImage.setVisibility(View.INVISIBLE);
+        PlayerOneMisfire.setVisibility(View.INVISIBLE);
+        PlayerTwoMisfire.setVisibility(View.INVISIBLE);
+
 
         QuickButton1.setEnabled(false);
         QuickButton2.setEnabled(false);
@@ -65,6 +80,8 @@ public class QuickDrawActivity extends GameActivity {
                 QuickButton1.setEnabled(false);
                 QuickButton2.setEnabled(false);
 
+                PlayerOneWinsImage.setVisibility(View.VISIBLE);
+
                 Toast.makeText(getApplicationContext(), R.string.player_one_pressed, Toast.LENGTH_SHORT).show();
 
                 handler.postDelayed(new Runnable() {
@@ -84,6 +101,8 @@ public class QuickDrawActivity extends GameActivity {
                 //disable button presses
                 QuickButton1.setEnabled(false);
                 QuickButton2.setEnabled(false);
+
+                PlayerTwoWinsImage.setVisibility(View.VISIBLE);
 
                 Toast.makeText(getApplicationContext(), R.string.player_two_pressed, Toast.LENGTH_SHORT).show();
 
@@ -107,6 +126,8 @@ public class QuickDrawActivity extends GameActivity {
                 CoverButton1.setEnabled(false);
                 CoverButton2.setEnabled(false);
 
+                PlayerOneMisfire.setVisibility(View.VISIBLE);
+
                 Toast.makeText(getApplicationContext(), R.string.player_one_too_soon, Toast.LENGTH_SHORT).show();
 
                 handler.postDelayed(new Runnable() {
@@ -118,7 +139,7 @@ public class QuickDrawActivity extends GameActivity {
             }
         });
 
-        QuickButton2.setOnClickListener(new View.OnClickListener() {
+        CoverButton2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 playerOneScore = 1;
@@ -128,6 +149,8 @@ public class QuickDrawActivity extends GameActivity {
                 QuickButton2.setEnabled(false);
                 CoverButton1.setEnabled(false);
                 CoverButton2.setEnabled(false);
+
+                PlayerTwoMisfire.setVisibility(View.VISIBLE);
 
                 Toast.makeText(getApplicationContext(), R.string.player_two_too_soon, Toast.LENGTH_SHORT).show();
 
