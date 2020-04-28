@@ -23,6 +23,7 @@ class Ball {
         this.yPos = yPos;
 
         this.yVel = game.getView().getHeight()/5f;
+        this.xVel = game.getView().getHeight()/5f;
     }
 
     void update(float deltaTime, Paddle padBottom, Paddle padTop)
@@ -30,21 +31,21 @@ class Ball {
         xPos += xVel * deltaTime;
         yPos += yVel * deltaTime;
 
-        if (yVel > 0)
-        {
-            if(yPos + radius > padBottom.yPos && xPos + radius > padBottom.xPos && xPos - radius < padBottom.xPos + Paddle.width)
-            {
-                yVel *= -1.1f;
-                xVel *= 1.1f;
-            }
+        //Collision for Paddles
+        if (
+                (yVel > 0 && yPos + radius > padBottom.yPos && xPos + radius > padBottom.xPos && xPos - radius < padBottom.xPos + Paddle.width) ||
+                (yVel < 0 && yPos - radius < padTop.yPos + Paddle.height && xPos + radius > padTop.xPos && xPos - radius < padTop.xPos + Paddle.width)
+        ) {
+            yVel *= -1.1f;
+            xVel *= 1.1f;
         }
-        else
-        {
-            if(yPos - radius < padTop.yPos + Paddle.height && xPos + radius > padTop.xPos && xPos - radius < padTop.xPos + Paddle.width)
-            {
-                yVel *= -1.1f;
-                xVel *= 1.1f;
-            }
+
+        //Collision for Walls
+        if(
+            (xVel < 0 && xPos - radius < game.getView().getLeft()) ||
+            (xVel > 0 && xPos + radius > game.getView().getRight())
+        ) {
+            xVel *= -1;
         }
     }
 
