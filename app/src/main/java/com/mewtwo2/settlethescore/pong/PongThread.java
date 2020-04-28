@@ -1,4 +1,4 @@
-package com.mewtwo2.settlethescore;
+package com.mewtwo2.settlethescore.pong;
 
 import android.graphics.Canvas;
 import android.view.SurfaceHolder;

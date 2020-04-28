@@ -2,19 +2,19 @@ package com.mewtwo2.settlethescore.ui;
 
 import android.content.Context;
 import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Paint;
-import android.support.annotation.IntDef;
+import android.view.MotionEvent;
 import android.view.SurfaceView;
 import android.view.SurfaceHolder;
-import android.widget.Toast;
 
-import com.mewtwo2.settlethescore.PongGame;
-import com.mewtwo2.settlethescore.PongThread;
+import com.mewtwo2.settlethescore.pong.PongGame;
+import com.mewtwo2.settlethescore.pong.PongThread;
 
 public class PongView extends SurfaceView implements SurfaceHolder.Callback {
 
+    private volatile MotionEvent lastEvent;
+
     PongThread thread;
+    PongGame game;
 
     public PongView(Context context)
     {
@@ -23,11 +23,24 @@ public class PongView extends SurfaceView implements SurfaceHolder.Callback {
         getHolder().addCallback(this);
 
         setFocusable(true);
+
     }
 
     public void update(float deltaTime)
     {
+        game.update(deltaTime);
+    }
 
+    @Override
+    public boolean onTouchEvent(MotionEvent event)
+    {
+        lastEvent = event;
+        return true;
+    }
+
+    public MotionEvent getLatestMotionEvent()
+    {
+        return lastEvent;
     }
 
     @Override
@@ -37,15 +50,15 @@ public class PongView extends SurfaceView implements SurfaceHolder.Callback {
 
     @Override
     public void surfaceCreated(SurfaceHolder holder) {
+        game = new PongGame(this);
+
         thread = new PongThread(getHolder(), this, getDisplay().getRefreshRate());
         thread.startThread();
-        Toast.makeText(getContext(), "Surface Created", Toast.LENGTH_SHORT ).show();
     }
 
     @Override
     public void surfaceDestroyed(SurfaceHolder holder) {
         thread.stopThread();
-        Toast.makeText(getContext(), "Surface Destroyed", Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -53,11 +66,6 @@ public class PongView extends SurfaceView implements SurfaceHolder.Callback {
     {
         super.draw(canvas);
 
-        if(canvas != null) {
-            canvas.drawColor(Color.WHITE);
-            Paint paint = new Paint();
-            paint.setColor(Color.rgb(120, 200, 0));
-            canvas.drawRect(100, 100, 200, 200, paint);
-        }
+        game.draw(canvas);
     }
 }
