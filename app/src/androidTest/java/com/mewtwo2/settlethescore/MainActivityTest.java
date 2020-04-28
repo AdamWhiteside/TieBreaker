@@ -2,10 +2,12 @@ package com.mewtwo2.settlethescore;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
-import android.support.test.filters.LargeTest;
+import static android.support.test.espresso.intent.Intents.intended;
+import static android.support.test.espresso.intent.matcher.IntentMatchers.hasComponent;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 
+import com.mewtwo2.settlethescore.activities.CoinFlipActivity;
 import com.mewtwo2.settlethescore.activities.MainActivity;
 import com.mewtwo2.settlethescore.activities.R;
 
@@ -36,5 +38,11 @@ public class MainActivityTest {
     @Test
     public void SettleTheScoreBtnWorks() {
         onView(withId(R.id.btnSettleTheScore)).perform(click());
+        intended(hasComponent(CoinFlipActivity.class.getName()));
+    }
+
+    public void PickGameBtnWorks() {
+        onView(withId(R.id.btnSettleTheScore)).perform(click());
+        intended(hasComponent(CoinFlipActivity.class.getName()));
     }
 }
