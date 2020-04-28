@@ -12,4 +12,7 @@
     <string name='instruction_roulette'>
         Each player spins the roulette wheel. The pointer will land at a number on the wheel at the end of the spin. Whoever gets the highest number wins.
     </string>
+    <string name='instruction_quick_draw'>
+        Each player player has a button. After randomized timer, the first to tap their button will win. Tapping before the timer will result in a loss.
+    </string>
 </resources>
