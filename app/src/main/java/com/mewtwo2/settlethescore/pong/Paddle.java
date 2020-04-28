@@ -43,7 +43,7 @@ class Paddle {
 
                     if(Math.abs(y - yPos) < inputRange)
                     {
-                        xPos = x;
+                        xPos = x - width/2f;
                     }
                 }
         }

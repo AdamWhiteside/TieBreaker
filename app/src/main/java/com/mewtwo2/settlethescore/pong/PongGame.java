@@ -22,7 +22,7 @@ public class PongGame {
         this.view = view;
         ball = new Ball(view.getWidth()/2f,view.getHeight()/2f, this);
         paddleBottom = new Paddle(view.getWidth()/2f - Paddle.width/2f,view.getHeight() - 50 - Paddle.height,this);
-        paddleTop = new Paddle(view.getWidth()/2f - Paddle.width - Ball.radius + 1, 50f, this);
+        paddleTop = new Paddle(view.getWidth()/2f - Paddle.width/2f, 50f, this);
     }
 
     public PongView getView()
