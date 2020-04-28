@@ -22,6 +22,8 @@
     <string name="player_two_wins">Player 2 wins!</string>
     <string name="player_one_pressed">Player 1 pressed first!</string>
     <string name="player_two_pressed">Player 2 pressed first!</string>
+    <string name="player_one_too_soon">Player 1 pressed too soon!</string>
+    <string name="player_two_too_soon">Player 2 pressed too soon!</string>
 
     <string name="rock_btn">Rock</string>
     <string name="paper_btn">Paper</string>

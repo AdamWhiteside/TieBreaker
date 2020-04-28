@@ -26,6 +26,10 @@ public class QuickDrawActivity extends GameActivity {
     private int playerTwoScore = 0;
     private ImageButton QuickButton1;
     private ImageButton QuickButton2;
+    private ImageButton CoverButton1;
+    private ImageButton CoverButton2;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +38,11 @@ public class QuickDrawActivity extends GameActivity {
         setContentView(R.layout.activity_quickdraw);
         QuickButton1 = findViewById(R.id.QuickButton1);
         QuickButton2 = findViewById(R.id.QuickButton2);
+        CoverButton1 = findViewById(R.id.CoverButton1);
+        CoverButton2 = findViewById(R.id.CoverButton2);
+
+        QuickButton1.setEnabled(false);
+        QuickButton2.setEnabled(false);
         /*
 
         // Get the Intent that started this activity and extract the string
@@ -86,6 +95,53 @@ public class QuickDrawActivity extends GameActivity {
                 }, 2000);
             }
         });
+
+        CoverButton1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                playerTwoScore = 1;
+
+                //disable button presses
+                QuickButton1.setEnabled(false);
+                QuickButton2.setEnabled(false);
+                CoverButton1.setEnabled(false);
+                CoverButton2.setEnabled(false);
+
+                Toast.makeText(getApplicationContext(), R.string.player_one_too_soon, Toast.LENGTH_SHORT).show();
+
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        openResultsActivity();
+                    }
+                }, 2000);
+            }
+        });
+
+        QuickButton2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                playerOneScore = 1;
+
+                //disable button presses
+                QuickButton1.setEnabled(false);
+                QuickButton2.setEnabled(false);
+                CoverButton1.setEnabled(false);
+                CoverButton2.setEnabled(false);
+
+                Toast.makeText(getApplicationContext(), R.string.player_two_too_soon, Toast.LENGTH_SHORT).show();
+
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        openResultsActivity();
+                    }
+                }, 2000);
+            }
+        });
+
+
+
     }
 
     //Declare timer
@@ -156,6 +212,13 @@ public class QuickDrawActivity extends GameActivity {
                 ViewGroup layout2 = (ViewGroup) imageButton2.getParent();
                 layout.removeView(imageButton1);
                 layout2.removeView(imageButton2);
+
+
+                CoverButton1.setEnabled(false);
+                CoverButton2.setEnabled(false);
+                QuickButton1.setEnabled(true);
+                QuickButton2.setEnabled(true);
+
                 cancelTimer();
             }
         };
