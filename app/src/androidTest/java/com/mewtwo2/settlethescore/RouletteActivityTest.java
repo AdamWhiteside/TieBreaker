@@ -33,7 +33,6 @@ import static org.hamcrest.Matchers.not;
 @RunWith(AndroidJUnit4.class)
 public class RouletteActivityTest {
 
-
     @Rule
     public ActivityTestRule<RouletteActivity> rActivityRule = new ActivityTestRule<>(
             RouletteActivity.class);
