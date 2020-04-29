@@ -2,6 +2,7 @@ package com.mewtwo2.settlethescore.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -18,6 +19,7 @@ public class TicTacToeActivity extends GameActivity implements View.OnClickListe
     private int playerTwoScore = 0;
     private TextView textViewPlayer1;
     private TextView textViewPlayer2;
+    private Handler handler = new Handler();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -113,19 +115,38 @@ public class TicTacToeActivity extends GameActivity implements View.OnClickListe
         playerOneScore++;
         Toast.makeText(this, "Player 1 wins!", Toast.LENGTH_SHORT).show();
         updateScoreText();
-        openResultsActivity();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                //player 2 must click ready to flip
+                openResultsActivity();
+            }
+        }, 2000);
+
     }
 
     private void playerTwoWins() {
         playerTwoScore++;
         Toast.makeText(this, "Player 2 wins!", Toast.LENGTH_SHORT).show();
         updateScoreText();
-        openResultsActivity();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                //player 2 must click ready to flip
+                openResultsActivity();
+            }
+        }, 2000);
     }
 
     private void draw() {
         Toast.makeText(this, "Draw!", Toast.LENGTH_SHORT).show();
-        openResultsActivity();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                //player 2 must click ready to flip
+                openResultsActivity();
+            }
+        }, 2000);
     }
 
     private void updateScoreText() {
