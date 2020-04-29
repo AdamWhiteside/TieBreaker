@@ -1,19 +1,21 @@
 package com.mewtwo2.settlethescore.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.mewtwo2.settlethescore.registration.GameRegistry;
+
 public class TicTacToeActivity extends GameActivity implements View.OnClickListener {
 
     private Button[][] buttons = new Button[3][3];
-    private boolean player1Turn = true;
+    private boolean playerOneTurn = true;
     private int roundCount;
-    private int player1Points;
-    private int player2Points;
+    private int playerOneScore = 0;
+    private int playerTwoScore = 0;
     private TextView textViewPlayer1;
     private TextView textViewPlayer2;
 
@@ -38,7 +40,7 @@ public class TicTacToeActivity extends GameActivity implements View.OnClickListe
         buttonReset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                resetGame();
+                resetBoard();
             }
         });
     }
@@ -49,7 +51,7 @@ public class TicTacToeActivity extends GameActivity implements View.OnClickListe
             return;
         }
 
-        if (player1Turn) {
+        if (playerOneTurn) {
             ((Button) v).setText("X");
         } else {
             ((Button) v).setText("O");
@@ -58,15 +60,15 @@ public class TicTacToeActivity extends GameActivity implements View.OnClickListe
         roundCount++;
 
         if (checkForWin()) {
-            if (player1Turn) {
-                player1Wins();
+            if (playerOneTurn) {
+                playerOneWins();
             } else {
-                player2Wins();
+                playerTwoWins();
             }
         } else if (roundCount == 9) {
             draw();
         } else {
-            player1Turn = !player1Turn;
+            playerOneTurn = !playerOneTurn;
         }
 
     }
@@ -107,28 +109,28 @@ public class TicTacToeActivity extends GameActivity implements View.OnClickListe
                 && !field[0][2].equals("");
     }
 
-    private void player1Wins() {
-        player1Points++;
+    private void playerOneWins() {
+        playerOneScore++;
         Toast.makeText(this, "Player 1 wins!", Toast.LENGTH_SHORT).show();
-        updatePointsText();
-        resetBoard();
+        updateScoreText();
+        openResultsActivity();
     }
 
-    private void player2Wins() {
-        player2Points++;
+    private void playerTwoWins() {
+        playerTwoScore++;
         Toast.makeText(this, "Player 2 wins!", Toast.LENGTH_SHORT).show();
-        updatePointsText();
-        resetBoard();
+        updateScoreText();
+        openResultsActivity();
     }
 
     private void draw() {
         Toast.makeText(this, "Draw!", Toast.LENGTH_SHORT).show();
-        resetBoard();
+        openResultsActivity();
     }
 
-    private void updatePointsText() {
-        textViewPlayer1.setText("Player 1: " + player1Points);
-        textViewPlayer2.setText("Player 2: " + player2Points);
+    private void updateScoreText() {
+        textViewPlayer1.setText("Player 1: " + playerOneScore);
+        textViewPlayer2.setText("Player 2: " + playerTwoScore);
     }
 
     private void resetBoard() {
@@ -139,33 +141,21 @@ public class TicTacToeActivity extends GameActivity implements View.OnClickListe
         }
 
         roundCount = 0;
-        player1Turn = true;
+        playerOneTurn = true;
     }
 
-    private void resetGame() {
-        player1Points = 0;
-        player2Points = 0;
-        updatePointsText();
-        resetBoard();
+    public void openPopUpActivity() {
+        Intent intent = new Intent(this,PopUpActivity.class);
+        intent.putExtra("playerOneTurn", playerOneTurn);
+        intent.putExtra("playerOneScore", playerOneScore);
+        intent.putExtra("GameInfo", GameRegistry.getGameInfo(CoinFlipActivity.class));
+        startActivity(intent);
     }
 
-    @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-
-        outState.putInt("roundCount", roundCount);
-        outState.putInt("player1Points", player1Points);
-        outState.putInt("player2Points", player2Points);
-        outState.putBoolean("player1Turn", player1Turn);
-    }
-
-    @Override
-    protected void onRestoreInstanceState(Bundle savedInstanceState) {
-        super.onRestoreInstanceState(savedInstanceState);
-
-        roundCount = savedInstanceState.getInt("roundCount");
-        player1Points = savedInstanceState.getInt("player1Points");
-        player2Points = savedInstanceState.getInt("player2Points");
-        player1Turn = savedInstanceState.getBoolean("player1Turn");
+    public void openResultsActivity() {
+        Intent intent = new Intent(this,ResultsActivity.class);
+        intent.putExtra("playerOneScore", playerOneScore);
+        intent.putExtra("playerTwoScore", playerTwoScore);
+        startActivity(intent);
     }
 }
