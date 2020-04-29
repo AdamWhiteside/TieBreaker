@@ -40,7 +40,7 @@ public class TicTacToeActivity extends GameActivity implements View.OnClickListe
         buttonReset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openPopUpActivity();
+                resetBoard();
             }
         });
     }
