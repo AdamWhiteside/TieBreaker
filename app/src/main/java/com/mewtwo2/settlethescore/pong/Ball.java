@@ -26,8 +26,7 @@ class Ball {
         this.xVel = game.getView().getHeight()/5f;
     }
 
-    void update(float deltaTime, Paddle padBottom, Paddle padTop)
-    {
+    void update(float deltaTime, Paddle padBottom, Paddle padTop) {
         xPos += xVel * deltaTime;
         yPos += yVel * deltaTime;
 
@@ -46,6 +45,14 @@ class Ball {
             (xVel > 0 && xPos + radius > game.getView().getRight())
         ) {
             xVel *= -1;
+        }
+
+        //Scoring
+        if (yPos + radius < 0) {
+            game.setScore(0,1);
+        }
+        else if (yPos - radius > game.getView().getHeight()) {
+            game.setScore(1,0);
         }
     }
 

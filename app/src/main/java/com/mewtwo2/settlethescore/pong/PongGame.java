@@ -3,14 +3,16 @@ package com.mewtwo2.settlethescore.pong;
 import android.graphics.Canvas;
 import android.view.View;
 
+import com.mewtwo2.settlethescore.activities.PongActivity;
 import com.mewtwo2.settlethescore.ui.PongView;
 
 public class PongGame {
-    private PongView view;
-
-    private Ball ball;
     Paddle paddleBottom;
     Paddle paddleTop;
+
+    private PongView view;
+    private Ball ball;
+    private boolean paused;
 
     public PongGame(PongView view) {
         //Not the cleanest solution, but it works for now
@@ -23,6 +25,8 @@ public class PongGame {
         ball = new Ball(view.getWidth()/2f,view.getHeight()/2f, this);
         paddleBottom = new Paddle(view.getWidth()/2f - Paddle.width/2f,view.getHeight() - 50 - Paddle.height,this);
         paddleTop = new Paddle(view.getWidth()/2f - Paddle.width/2f, 50f, this);
+
+        paused = false;
     }
 
     public PongView getView()
@@ -31,6 +35,11 @@ public class PongGame {
     }
 
     public void update(float deltaTime) {
+        if(paused)
+        {
+            return;
+        }
+
         ball.update(deltaTime, paddleBottom, paddleTop);
         paddleBottom.update(deltaTime);
         paddleTop.update(deltaTime);
@@ -40,5 +49,18 @@ public class PongGame {
         ball.draw(canvas);
         paddleBottom.draw(canvas);
         paddleTop.draw(canvas);
+    }
+
+    void setScore(int playerTop, int playerBottom)
+    {
+        paused = true;
+
+        try {
+            PongActivity a = (PongActivity) getView().getContext();
+            a.openResultsActivity(playerBottom, playerTop);
+        } catch (Exception e)
+        {
+            e.printStackTrace();
+        }
     }
 }
