@@ -30,6 +30,6 @@ public class RouletteActivityTest {
 
     @Test
     public void RouletteBtnWorks() {
-        onView(withId(R.id.spinBtn)).perform(click());
+        onView(withId(R.id.spinBtn)).perform(click()); //spin button works
     }
 }
