@@ -85,10 +85,17 @@ public class MainActivity extends AppCompatActivity {
                 GameInfo.GameType.Noninteractive);
 
         GameRegistry.RegisterGame(
-                RouletteActivity.class,
-                R.string.name_roulette,
-                R.string.instruction_roulette,
-                R.drawable.roulettelogo,
+            RouletteActivity.class,
+            R.string.name_roulette,
+            R.string.instruction_roulette,
+            R.drawable.roulettelogo,
+            GameInfo.GameType.Noninteractive);
+
+        GameRegistry.RegisterGame(
+                ButtonMashActivity.class,
+                R.string.name_button_mash,
+                R.string.instruction_button_mash,
+                R.drawable.buttonmashlogo,
                 GameInfo.GameType.Noninteractive);
 
         registrationComplete = true;

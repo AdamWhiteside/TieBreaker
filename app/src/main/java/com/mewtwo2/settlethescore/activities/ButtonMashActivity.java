@@ -14,7 +14,7 @@ import android.widget.TextView;
 import com.mewtwo2.settlethescore.registration.GameInfo;
 import com.mewtwo2.settlethescore.registration.GameRegistry;
 
-public class ButtonMashActivity extends AppCompatActivity{
+public class ButtonMashActivity extends GameActivity{
     ImageView arcadeButton;
     TextView result, info;
 
@@ -24,7 +24,7 @@ public class ButtonMashActivity extends AppCompatActivity{
     CountDownTimer timer;
 
     int bestResult = 0;
-
+    private Handler handler = new Handler();
     int playerOneScore = 0;
     int playerTwoScore = 0;
     int turn = 0;
@@ -71,8 +71,7 @@ public class ButtonMashActivity extends AppCompatActivity{
                         playerOneScore = currentTaps;
                     else if (turn == 1)
                         playerTwoScore = currentTaps;
-                    else
-                        openResultsActivity();
+
                     turn++;
                     if(currentTaps > bestResult) {
                         bestResult = currentTaps;
@@ -82,36 +81,36 @@ public class ButtonMashActivity extends AppCompatActivity{
                         editor.putInt("highScore", bestResult);
                         editor.apply();
                     }
-                   /* if (playerOneTurn == true) {
+                    if (playerOneTurn == true) {
                         //now it is player 2's turn
                         playerOneTurn = false;
 
                         //delay for 2 seconds
-                        Handler.postDelayed(new Runnable() {
+                        handler.postDelayed(new Runnable() {
                             @Override
                             public void run() {
-                                //player 2 must click ready to flip
+
                                 openPopUpActivity();
                             }
                         }, 2000);
                     }
                     else {
                         //delay for 2 seconds
-                        Handler.postDelayed(new Runnable() {
+                        handler.postDelayed(new Runnable() {
                             @Override
                             public void run() {
                                 openResultsActivity();
                             }
                         }, 2000);
-                    }*/
-                    new Handler().postDelayed(new Runnable() {
+                    }
+                    /*new Handler().postDelayed(new Runnable() {
                         @Override
                         public void run() {
                             arcadeButton.setEnabled(true);
                             info.setText("Start Tapping");
                             currentTaps = 0;
                         }
-                    }, 2000);
+                    }, 2000);*/
                 }
             };
     }
