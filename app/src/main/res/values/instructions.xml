@@ -12,4 +12,7 @@
     <string name='instruction_roulette'>
         Each player spins the roulette wheel. The pointer will land at a number on the wheel at the end of the spin. Whoever gets the highest number wins.
     </string>
+    <string name='instruction_button_mash'>
+        Each player starts tapping the button as fast as they can. whoever gets the most taps in 10 seconds wins
+    </string>
 </resources>
