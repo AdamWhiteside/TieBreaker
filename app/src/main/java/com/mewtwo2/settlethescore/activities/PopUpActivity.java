@@ -1,32 +1,25 @@
 package com.mewtwo2.settlethescore.activities;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.text.method.ScrollingMovementMethod;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.mewtwo2.settlethescore.registration.GameInfo;
 
 public class PopUpActivity extends GameActivity {
 
-    private Button ready_btn;
-    private TextView player_text_view;
-    private TextView instructions;
     private boolean playerOneTurn;
     private int playerOneScore;
     private GameInfo gameToLaunch;
-    private GameInfo type;
     private String player_one_choice;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pop_up);
-        instructions = (TextView) findViewById(R.id.instruction_text);
-        instructions.setMovementMethod(new ScrollingMovementMethod());
 
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
@@ -36,30 +29,43 @@ public class PopUpActivity extends GameActivity {
             player_one_choice = extras.getString("player_one_choice");
         }
 
-        //set action bar text to game being played
-        getSupportActionBar().setTitle(gameToLaunch.nameID);
-        //set instruction text view
-        instructions.setText(gameToLaunch.instructionsID);
+        setContentView(R.layout.activity_pop_up);
 
-        player_text_view = (TextView) findViewById(R.id.player_text);
+        //Set Game Logo ImageView
+        ImageView imageGameLogo = findViewById(R.id.imageGameLogo);
+        imageGameLogo.setImageResource(gameToLaunch.logoID);
+
+        //Set Game Name TextView
+        TextView textGameName = findViewById(R.id.textGameName);
+        textGameName.setText(gameToLaunch.nameID);
+
+        //set instruction text view
+        TextView textGameInstructions = findViewById(R.id.textGameInstructions);
+        textGameInstructions.setMovementMethod(new ScrollingMovementMethod());
+        textGameInstructions.setText(gameToLaunch.instructionsID);
+
+
+        TextView textPlayerNumber = findViewById(R.id.textPlayerNumber);
 
         //if game is interactive, hide player text view
         if (gameToLaunch.gameType == GameInfo.GameType.Interactive)
         {
-            player_text_view.setVisibility(View.INVISIBLE);
+            textPlayerNumber.setText(R.string.player_interactive);
         }
         //display player text view
         else {
             if (playerOneTurn == true) {
-                player_text_view.setText(R.string.player_one);
+                getSupportActionBar().setTitle(R.string.player_one);
+                textPlayerNumber.setText(R.string.player_one);
             }
             else {
-                player_text_view.setText(R.string.player_two);
+                getSupportActionBar().setTitle(R.string.player_two);
+                textPlayerNumber.setText(R.string.player_two);
             }
         }
 
-        ready_btn = (Button) findViewById(R.id.button_ready);
-        ready_btn.setOnClickListener(new View.OnClickListener() {
+        Button buttonReady = findViewById(R.id.buttonReady);
+        buttonReady.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 playerReady();

@@ -75,3 +75,5 @@ fabric.properties
 
 #Dolphin File Manager
 .directory
+
+.idea/render.*

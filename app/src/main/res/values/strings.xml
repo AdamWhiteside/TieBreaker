@@ -10,9 +10,12 @@
     <string name="this_is_a_coin">This is a coin</string>
     <string name="heads_btn">Gold</string>
     <string name="tails_btn">Purple</string>
-    <string name="ready_btn">READY</string>
+
     <string name="player_one">Player 1</string>
     <string name="player_two">Player 2</string>
+    <string name="player_interactive">Interactive</string>
+    <string name="ready_btn">START GAME</string>
+
     <string name="btn_play_again">Play Again</string>
     <string name="btn_new_game">New Game</string>
     <string name="player_one_score_text">Player 1 score:</string>
@@ -20,6 +23,11 @@
     <string name="tie_text">It\'s a tie!</string>
     <string name="player_one_wins">Player 1 wins!</string>
     <string name="player_two_wins">Player 2 wins!</string>
+
+    <string name="player_one_pressed">Player 1 pressed first!</string>
+    <string name="player_two_pressed">Player 2 pressed first!</string>
+    <string name="player_one_too_soon">Player 1 pressed too soon!</string>
+    <string name="player_two_too_soon">Player 2 pressed too soon!</string>
 
     <string name="rock_btn">Rock</string>
     <string name="paper_btn">Paper</string>
@@ -31,5 +39,8 @@
     <string name="name_coin_flip">Coin Flip</string>
     <string name="name_rock_paper_scissors">Rock Paper Scissors</string>
     <string name="name_tic_tac_toe">Tic Tac Toe</string>
+    <string name="name_pong">Pong</string>
     <string name="name_roulette">Roulette</string>
+    <string name="name_button_mash">Button Mash</string>
+    <string name="name_quick_draw">QuickDraw</string>
 </resources>
