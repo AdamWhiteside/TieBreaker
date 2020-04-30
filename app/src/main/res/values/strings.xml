@@ -10,9 +10,12 @@
     <string name="this_is_a_coin">This is a coin</string>
     <string name="heads_btn">Gold</string>
     <string name="tails_btn">Purple</string>
-    <string name="ready_btn">READY</string>
+
     <string name="player_one">Player 1</string>
     <string name="player_two">Player 2</string>
+    <string name="player_interactive">Interactive</string>
+    <string name="ready_btn">START GAME</string>
+
     <string name="btn_play_again">Play Again</string>
     <string name="btn_new_game">New Game</string>
     <string name="player_one_score_text">Player 1 score:</string>
