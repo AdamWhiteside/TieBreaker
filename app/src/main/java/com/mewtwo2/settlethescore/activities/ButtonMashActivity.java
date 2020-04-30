@@ -27,7 +27,6 @@ public class ButtonMashActivity extends GameActivity{
     private Handler handler = new Handler();
     int playerOneScore = 0;
     int playerTwoScore = 0;
-    int turn = 0;
     boolean playerOneTurn = true;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,22 +71,8 @@ public class ButtonMashActivity extends GameActivity{
                     arcadeButton.setEnabled(false);
                     gameStarted = false;
                     result.setText("Current Taps: " + currentTaps);
-                    if(turn == 0)
+                    if(playerOneTurn) {
                         playerOneScore = currentTaps;
-                    else if (turn == 1)
-                        playerTwoScore = currentTaps;
-
-                    turn++;
-                    if(currentTaps > bestResult) {
-                        bestResult = currentTaps;
-
-                        SharedPreferences preferences1 = getSharedPreferences("PREFS", 0);
-                        SharedPreferences.Editor editor = preferences1.edit();
-                        editor.putInt("highScore", bestResult);
-                        editor.apply();
-                    }
-                    if (playerOneTurn == true) {
-                        //now it is player 2's turn
                         playerOneTurn = false;
 
                         //delay for 2 seconds
@@ -98,7 +83,9 @@ public class ButtonMashActivity extends GameActivity{
                             }
                         }, 2000);
                     }
-                    else {
+                    else
+                    {
+                        playerTwoScore = currentTaps;
                         //delay for 2 seconds
                         handler.postDelayed(new Runnable() {
                             @Override
@@ -106,6 +93,15 @@ public class ButtonMashActivity extends GameActivity{
                                 openResultsActivity();
                             }
                         }, 2000);
+                    }
+
+                    if(currentTaps > bestResult) {
+                        bestResult = currentTaps;
+
+                        SharedPreferences preferences1 = getSharedPreferences("PREFS", 0);
+                        SharedPreferences.Editor editor = preferences1.edit();
+                        editor.putInt("highScore", bestResult);
+                        editor.apply();
                     }
                 }
             };
