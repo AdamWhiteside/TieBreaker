@@ -20,8 +20,11 @@
     <string name="tie_text">It\'s a tie!</string>
     <string name="player_one_wins">Player 1 wins!</string>
     <string name="player_two_wins">Player 2 wins!</string>
+
     <string name="player_one_pressed">Player 1 pressed first!</string>
     <string name="player_two_pressed">Player 2 pressed first!</string>
+    <string name="player_one_too_soon">Player 1 pressed too soon!</string>
+    <string name="player_two_too_soon">Player 2 pressed too soon!</string>
 
     <string name="rock_btn">Rock</string>
     <string name="paper_btn">Paper</string>
@@ -33,6 +36,8 @@
     <string name="name_coin_flip">Coin Flip</string>
     <string name="name_rock_paper_scissors">Rock Paper Scissors</string>
     <string name="name_tic_tac_toe">Tic Tac Toe</string>
+    <string name="name_pong">Pong</string>
     <string name="name_roulette">Roulette</string>
+    <string name="name_button_mash">Button Mash</string>
     <string name="name_quick_draw">QuickDraw</string>
 </resources>

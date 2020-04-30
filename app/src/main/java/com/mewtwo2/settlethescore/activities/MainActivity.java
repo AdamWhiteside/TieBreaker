@@ -64,6 +64,13 @@ public class MainActivity extends AppCompatActivity {
 
         //Must add your game here for it to work in the system
         GameRegistry.RegisterGame(
+                ButtonMashActivity.class,
+                R.string.name_button_mash,
+                R.string.instruction_button_mash,
+                R.drawable.buttonmashlogo,
+                GameInfo.GameType.Noninteractive);
+
+        GameRegistry.RegisterGame(
                 CoinFlipActivity.class,
                 R.string.name_coin_flip,
                 R.string.instruction_coin_flip,
@@ -71,10 +78,17 @@ public class MainActivity extends AppCompatActivity {
                 GameInfo.GameType.Noninteractive);
 
         GameRegistry.RegisterGame(
-                TicTacToeActivity.class,
-                R.string.name_tic_tac_toe,
-                R.string.instruction_tic_tac_toe,
-                R.drawable.tictactoelogo,
+                PongActivity.class,
+                R.string.name_pong,
+                R.string.instruction_pong,
+                R.drawable.ponglogo,
+                GameInfo.GameType.Interactive);
+
+        GameRegistry.RegisterGame(
+                QuickDrawActivity.class,
+                R.string.name_quick_draw,
+                R.string.instruction_quick_draw,
+                R.drawable.quickdrawlogo,
                 GameInfo.GameType.Interactive);
 
         GameRegistry.RegisterGame(
@@ -92,10 +106,10 @@ public class MainActivity extends AppCompatActivity {
                 GameInfo.GameType.Noninteractive);
 
         GameRegistry.RegisterGame(
-                QuickDrawActivity.class,
-                R.string.name_roulette,
-                R.string.instruction_roulette,
-                R.drawable.roulettelogo,
+                TicTacToeActivity.class,
+                R.string.name_tic_tac_toe,
+                R.string.instruction_tic_tac_toe,
+                R.drawable.tictactoelogo,
                 GameInfo.GameType.Interactive);
 
         registrationComplete = true;
