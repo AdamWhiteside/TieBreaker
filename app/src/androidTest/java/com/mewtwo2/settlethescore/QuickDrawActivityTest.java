@@ -32,6 +32,7 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
@@ -46,7 +47,8 @@ public class QuickDrawActivityTest {
 
     @Test
     // Fail top
-    public void PlayerOneWinsTest() {
+    public void PlayerOneWinsTest() throws InterruptedException {
+        Thread.sleep(12000);
         onView(withId(R.id.QuickButton1)).perform(click());
 
         onView(withText(R.string.player_one_pressed)).inRoot(withDecorView(not(is(qdActivityRule.getActivity().getWindow().getDecorView())))).check(matches(isDisplayed()));
@@ -54,9 +56,26 @@ public class QuickDrawActivityTest {
 
     @Test
     // Fail bottom
-    public void PlayerTwoWinsTest() {
+    public void PlayerTwoWinsTest() throws InterruptedException {
+        Thread.sleep(12000);
         onView(withId(R.id.QuickButton2)).perform(click());
 
         onView(withText(R.string.player_two_pressed)).inRoot(withDecorView(not(is(qdActivityRule.getActivity().getWindow().getDecorView())))).check(matches(isDisplayed()));
+    }
+
+    @Test
+    // Fail top
+    public void PlayerOneLosesTest() throws InterruptedException {
+        onView(withId(R.id.CoverButton1)).perform(click());
+
+        onView(withText(R.string.player_one_too_soon)).inRoot(withDecorView(not(is(qdActivityRule.getActivity().getWindow().getDecorView())))).check(matches(isDisplayed()));
+    }
+
+    @Test
+    // Fail bottom
+    public void PlayerTwoLosesTest() throws InterruptedException {
+        onView(withId(R.id.CoverButton2)).perform(click());
+
+        onView(withText(R.string.player_two_too_soon)).inRoot(withDecorView(not(is(qdActivityRule.getActivity().getWindow().getDecorView())))).check(matches(isDisplayed()));
     }
 }
