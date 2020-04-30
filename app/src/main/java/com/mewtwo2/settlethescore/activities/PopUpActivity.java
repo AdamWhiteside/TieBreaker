@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.text.method.ScrollingMovementMethod;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.mewtwo2.settlethescore.registration.GameInfo;
@@ -20,6 +21,7 @@ public class PopUpActivity extends GameActivity {
     private GameInfo gameToLaunch;
     private GameInfo type;
     private String player_one_choice;
+    ImageView game_logo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +38,8 @@ public class PopUpActivity extends GameActivity {
             player_one_choice = extras.getString("player_one_choice");
         }
 
-        //set action bar text to game being played
+        game_logo = (ImageView) findViewById(R.id.game_logo_view);
+        game_logo.setImageResource(gameToLaunch.logoID);
         getSupportActionBar().setTitle(gameToLaunch.nameID);
         //set instruction text view
         instructions.setText(gameToLaunch.instructionsID);
@@ -51,9 +54,11 @@ public class PopUpActivity extends GameActivity {
         //display player text view
         else {
             if (playerOneTurn == true) {
+                getSupportActionBar().setTitle(R.string.player_one);
                 player_text_view.setText(R.string.player_one);
             }
             else {
+                getSupportActionBar().setTitle(R.string.player_two);
                 player_text_view.setText(R.string.player_two);
             }
         }
