@@ -1,28 +1,22 @@
 package com.mewtwo2.settlethescore.activities;
 
-import android.media.Image;
+
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.content.Intent;
 import android.widget.Toast;
 import android.os.Handler;
 
-//import androidx.appcompat.app.AppCompatActivity;
-
-import com.mewtwo2.settlethescore.registration.GameRegistry;
-
 import java.util.Random;
 
+// Quick Draw game class
 public class QuickDrawActivity extends GameActivity {
     private Handler handler = new Handler();
-    public boolean topTapped = false;
-    public boolean botTapped = false;
-    private boolean playerOneTurn = true;
     private int playerOneScore = 0;
     private int playerTwoScore = 0;
     private ImageButton QuickButton1;
@@ -33,12 +27,16 @@ public class QuickDrawActivity extends GameActivity {
     private ImageView PlayerTwoWinsImage;
     private ImageView PlayerOneMisfire;
     private ImageView PlayerTwoMisfire;
+    private ImageView TimeUpFanFare;
+    private ImageView FanFareLeft;
+    private ImageView FanFareRight;
 
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
+        // declarations
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quickdraw);
         QuickButton1 = findViewById(R.id.QuickButton1);
@@ -49,41 +47,49 @@ public class QuickDrawActivity extends GameActivity {
         PlayerTwoWinsImage = findViewById(R.id.PlayerTwoWinsImage);
         PlayerOneMisfire = findViewById(R.id.PlayerOneMisfire);
         PlayerTwoMisfire = findViewById(R.id.PlayerTwoMisfire);
+        TimeUpFanFare = findViewById(R.id.TimeUpFanFare);
+        FanFareLeft = findViewById(R.id.PreFanFareLeft);
+        FanFareRight = findViewById(R.id.PreFanFareRight);
 
         PlayerOneWinsImage.setVisibility(View.INVISIBLE);
         PlayerTwoWinsImage.setVisibility(View.INVISIBLE);
         PlayerOneMisfire.setVisibility(View.INVISIBLE);
         PlayerTwoMisfire.setVisibility(View.INVISIBLE);
 
-
+        // buttons disabled until timer is up
         QuickButton1.setEnabled(false);
         QuickButton2.setEnabled(false);
-        /*
 
-        // Get the Intent that started this activity and extract the string
-        Intent intent = getIntent();
-        String message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
-
-        // Capture the layout's TextView and set the string as its text
-        TextView textView = findViewById(R.id.textView);
-        textView.setText(message);
-        */
-
+        // timer determines when it is appropriate to tap
         startTimer();
 
+        // Player one win button listener, tapping this sees player one win
         QuickButton1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 playerOneScore = 1;
 
-                //disable button presses
+                // disable buttons on first click
                 QuickButton1.setEnabled(false);
                 QuickButton2.setEnabled(false);
 
+                QuickButton1.setVisibility(View.INVISIBLE);
+                QuickButton2.setVisibility(View.INVISIBLE);
+                CoverButton1.setVisibility(View.INVISIBLE);
+                CoverButton2.setVisibility(View.INVISIBLE);
+                TimeUpFanFare.setVisibility(View.INVISIBLE);
+                FanFareLeft.setVisibility(View.INVISIBLE);
+                FanFareRight.setVisibility(View.INVISIBLE);
+
+                // display proper victory image
                 PlayerOneWinsImage.setVisibility(View.VISIBLE);
+
+                // disable fanfare
+                cancelTimer();
 
                 Toast.makeText(getApplicationContext(), R.string.player_one_pressed, Toast.LENGTH_SHORT).show();
 
+                // delay before changing screens
                 handler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
@@ -93,19 +99,33 @@ public class QuickDrawActivity extends GameActivity {
             }
         });
 
+        // Player two win button listener, tapping this sees player two win
         QuickButton2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 playerTwoScore = 1;
 
-                //disable button presses
+                // disable buttons on first click
                 QuickButton1.setEnabled(false);
                 QuickButton2.setEnabled(false);
 
+                QuickButton1.setVisibility(View.INVISIBLE);
+                QuickButton2.setVisibility(View.INVISIBLE);
+                CoverButton1.setVisibility(View.INVISIBLE);
+                CoverButton2.setVisibility(View.INVISIBLE);
+                TimeUpFanFare.setVisibility(View.INVISIBLE);
+                FanFareLeft.setVisibility(View.INVISIBLE);
+                FanFareRight.setVisibility(View.INVISIBLE);
+
+                // display proper victory image
                 PlayerTwoWinsImage.setVisibility(View.VISIBLE);
+
+                // disable fanfare
+                cancelTimer();
 
                 Toast.makeText(getApplicationContext(), R.string.player_two_pressed, Toast.LENGTH_SHORT).show();
 
+                // delay before changing screens
                 handler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
@@ -115,6 +135,7 @@ public class QuickDrawActivity extends GameActivity {
             }
         });
 
+        // Player one lose button listener, tapping this sees player two win
         CoverButton1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -126,7 +147,17 @@ public class QuickDrawActivity extends GameActivity {
                 CoverButton1.setEnabled(false);
                 CoverButton2.setEnabled(false);
 
+                QuickButton1.setVisibility(View.INVISIBLE);
+                QuickButton2.setVisibility(View.INVISIBLE);
+                CoverButton1.setVisibility(View.INVISIBLE);
+                CoverButton2.setVisibility(View.INVISIBLE);
+                TimeUpFanFare.setVisibility(View.INVISIBLE);
+                FanFareLeft.setVisibility(View.INVISIBLE);
+                FanFareRight.setVisibility(View.INVISIBLE);
+
                 PlayerOneMisfire.setVisibility(View.VISIBLE);
+
+                cancelTimer();
 
                 Toast.makeText(getApplicationContext(), R.string.player_one_too_soon, Toast.LENGTH_SHORT).show();
 
@@ -139,6 +170,7 @@ public class QuickDrawActivity extends GameActivity {
             }
         });
 
+        // Player two lose button listener, tapping this sees player one win
         CoverButton2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -150,7 +182,17 @@ public class QuickDrawActivity extends GameActivity {
                 CoverButton1.setEnabled(false);
                 CoverButton2.setEnabled(false);
 
+                QuickButton1.setVisibility(View.INVISIBLE);
+                QuickButton2.setVisibility(View.INVISIBLE);
+                CoverButton1.setVisibility(View.INVISIBLE);
+                CoverButton2.setVisibility(View.INVISIBLE);
+                TimeUpFanFare.setVisibility(View.INVISIBLE);
+                FanFareLeft.setVisibility(View.INVISIBLE);
+                FanFareRight.setVisibility(View.INVISIBLE);
+
                 PlayerTwoMisfire.setVisibility(View.VISIBLE);
+
+                cancelTimer();
 
                 Toast.makeText(getApplicationContext(), R.string.player_two_too_soon, Toast.LENGTH_SHORT).show();
 
@@ -167,16 +209,15 @@ public class QuickDrawActivity extends GameActivity {
 
     }
 
-    //Declare timer
-    CountDownTimer cTimer = null;
+    CountDownTimer timer = null;
 
     final int random = new Random().nextInt(10000) + 2000;
 
-    //start timer function
+    // timer for when to press buttons and display fanfare
     void startTimer() {
 
 
-        cTimer = new CountDownTimer(random, 250) {
+        timer = new CountDownTimer(random, 250) {
 
             @Override
             public void onTick(long millisUntilFinished) {
@@ -184,26 +225,9 @@ public class QuickDrawActivity extends GameActivity {
                 ImageView PreFanFareLeft = (ImageView) findViewById(R.id.PreFanFareLeft);
                 ImageView TimeUpFanFare = (ImageView) findViewById(R.id.TimeUpFanFare);
                 TimeUpFanFare.setVisibility(View.INVISIBLE);
-                //ViewGroup PFFR = (ViewGroup) PreFanFareRight.getParent();
-                //ViewGroup PFFL = (ViewGroup) PreFanFareLeft.getParent();
-               // PreFanFareRight.setVisibility(View.INVISIBLE);
-                //PreFanFareLeft.setVisibility(View.INVISIBLE);
 
-                /*
-                if (PFFR.getVisibility() == View.INVISIBLE) {
-                    PFFR.setVisibility(View.INVISIBLE);
-                } else {
-                    PFFR.setVisibility(View.VISIBLE);
-                }
 
-                if (PFFL.getVisibility() == View.INVISIBLE) {
-                    PFFL.setVisibility(View.INVISIBLE);
-                } else {
-                    PFFL.setVisibility(View.VISIBLE);
-                }
-
-                 */
-
+                // flash fanfare back and forth
                 if (PreFanFareRight.getVisibility() == View.INVISIBLE) {
                     PreFanFareRight.setVisibility(View.VISIBLE);
                 } else {
@@ -226,6 +250,7 @@ public class QuickDrawActivity extends GameActivity {
                 ImageButton imageButton2 = findViewById(R.id.CoverButton2);
                 ImageView TimeUpFanFare = (ImageView) findViewById(R.id.TimeUpFanFare);
 
+                // Show time up fanfare and hide pre-fanfare
                 TimeUpFanFare.setVisibility(View.VISIBLE);
 
                 PreFanFareLeft.setVisibility(View.INVISIBLE);
@@ -236,7 +261,7 @@ public class QuickDrawActivity extends GameActivity {
                 layout.removeView(imageButton1);
                 layout2.removeView(imageButton2);
 
-
+                // Swap available buttons, allowing potential victory
                 CoverButton1.setEnabled(false);
                 CoverButton2.setEnabled(false);
                 QuickButton1.setEnabled(true);
@@ -245,13 +270,13 @@ public class QuickDrawActivity extends GameActivity {
                 cancelTimer();
             }
         };
-        cTimer.start();
+        timer.start();
     }
 
     //cancel timer
     void cancelTimer() {
-        if(cTimer!=null)
-            cTimer.cancel();
+        if(timer!=null)
+            timer.cancel();
     }
 
     public void topClick(View view){
@@ -259,18 +284,7 @@ public class QuickDrawActivity extends GameActivity {
     }
 
 
-
-/*
-    public void openPopUpActivity() {
-        Intent intent = new Intent(this,PopUpActivity.class);
-        intent.putExtra("playerOneTurn", playerOneTurn);
-        intent.putExtra("playerOneScore", playerOneScore);
-        intent.putExtra("GameInfo", GameRegistry.getGameInfo(QuickDrawActivity.class));
-        startActivity(intent);
-    }
-
- */
-
+    // Finish game, record score
     public void openResultsActivity() {
         Intent intent = new Intent(this,ResultsActivity.class);
         intent.putExtra("playerOneScore", playerOneScore);
