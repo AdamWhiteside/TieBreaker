@@ -16,6 +16,9 @@
         Each player player has a button. After randomized timer, the first to tap their button will win. Tapping before the timer will result in a loss.
     </string>
     <string name='instruction_button_mash'>
-        Each player starts tapping the button as fast as they can. whoever gets the most taps in 10 seconds wins
+        Each player starts tapping the button as fast as they can. whoever gets the most taps in 5 seconds wins. Game beings win you start tapping
+    </string>
+    <string name='instruction_pong'>
+        Player 1 plays at the top of the screen and Player 2 at the bottom. Both players control their paddles by dragging their finger on their side of the screen. First player to score wins.
     </string>
 </resources>
