@@ -22,10 +22,10 @@
     <TextView
         android:id="@+id/textGameName"
         android:layout_width="248dp"
-        android:layout_height="69dp"
+        android:layout_height="98dp"
         android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:text="@string/name_button_mash"
+        android:gravity="top"
+        android:text="@string/name_rock_paper_scissors"
         android:textColor="@color/colorAccent"
         android:textSize="42sp"
         app:layout_constraintStart_toEndOf="@+id/imageGameLogo"
@@ -34,15 +34,13 @@
     <TextView
         android:id="@+id/textPlayerNumber"
         android:layout_width="208dp"
-        android:layout_height="49dp"
+        android:layout_height="28dp"
         android:layout_marginStart="48dp"
-        android:layout_marginLeft="48dp"
-        android:layout_marginTop="8dp"
         android:text="@string/player_one"
         android:textColor="@color/colorAccent"
-        android:textSize="28sp"
-        app:layout_constraintStart_toEndOf="@+id/imageGameLogo"
-        app:layout_constraintTop_toBottomOf="@+id/textGameName" />
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageGameLogo"
+        app:layout_constraintStart_toEndOf="@+id/imageGameLogo" />
 
     <TextView
         android:id="@+id/textGameInstructions"
