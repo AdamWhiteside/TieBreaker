@@ -10,7 +10,6 @@
         android:id="@+id/player_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="50dp"
         android:text="@string/player_one"
         android:textColor="@color/colorAccent"
         android:textSize="50sp" />
@@ -18,8 +17,7 @@
     <ImageView
         android:id="@+id/game_logo_view"
         android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:layout_marginTop="10dp"/>
+        android:layout_height="200dp" />
 
     <TextView
         android:id="@+id/instruction_text"
@@ -27,7 +25,6 @@
         android:layout_height="wrap_content"
         android:layout_marginRight="25dp"
         android:layout_marginLeft="25dp"
-        android:layout_marginBottom="10dp"
         android:textAlignment="center"
         android:textColor="@color/colorAccent"
         android:maxLength="500"
@@ -40,7 +37,6 @@
         android:id="@+id/button_ready"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
         android:background="@drawable/buttonborder"
         android:text="@string/ready_btn" />
 
