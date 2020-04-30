@@ -37,4 +37,5 @@
         android:layout_marginBottom="25dp"
         android:background="@drawable/buttonborder"
         android:text="@string/ready_btn" />
+
 </LinearLayout>
