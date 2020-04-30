@@ -61,7 +61,7 @@ public class ButtonMashActivity extends GameActivity{
             }
         });
 
-            timer = new CountDownTimer(10000, 1000) {
+            timer = new CountDownTimer(5000, 1000) {
                 @Override
                 public void onTick(long millisUntilFinished) {
                     long timeTillEnd = (millisUntilFinished / 1000) + 1;
