@@ -28,11 +28,17 @@ public class ButtonMashActivity extends GameActivity{
     int playerOneScore = 0;
     int playerTwoScore = 0;
     int turn = 0;
-    private boolean playerOneTurn = true;
+    boolean playerOneTurn = true;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_buttonmash);
+
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            playerOneTurn = extras.getBoolean("playerOneTurn");
+            playerOneScore = extras.getInt("playerOneScore");
+        }
 
         arcadeButton = findViewById(R.id.iv_tap);
         result = findViewById(R.id.tv_result);
@@ -65,7 +71,6 @@ public class ButtonMashActivity extends GameActivity{
                 public void onFinish() {
                     arcadeButton.setEnabled(false);
                     gameStarted = false;
-                    //info.setText("Game Over");
                     result.setText("Current Taps: " + currentTaps);
                     if(turn == 0)
                         playerOneScore = currentTaps;
@@ -89,10 +94,6 @@ public class ButtonMashActivity extends GameActivity{
                         handler.postDelayed(new Runnable() {
                             @Override
                             public void run() {
-                                //arcadeButton.setEnabled(true);
-                                //info.setText("Start Tapping");
-                                currentTaps = 0;
-
                                 openPopUpActivity();
                             }
                         }, 2000);
@@ -106,14 +107,6 @@ public class ButtonMashActivity extends GameActivity{
                             }
                         }, 2000);
                     }
-                    /*new Handler().postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            arcadeButton.setEnabled(true);
-                            info.setText("Start Tapping");
-                            currentTaps = 0;
-                        }
-                    }, 2000);*/
                 }
             };
     }
