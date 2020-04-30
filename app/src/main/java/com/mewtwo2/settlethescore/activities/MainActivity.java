@@ -81,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
                 PongActivity.class,
                 R.string.name_pong,
                 R.string.instruction_pong,
-                R.drawable.logo,
+                R.drawable.ponglogo,
                 GameInfo.GameType.Interactive);
 
         registrationComplete = true;

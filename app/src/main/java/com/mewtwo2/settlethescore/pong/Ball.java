@@ -20,7 +20,7 @@ class Ball {
 
     Ball(float xPos, float yPos, PongGame game) {
         paint = new Paint();
-        paint.setColor(Color.WHITE);
+        paint.setColor(Color.rgb(246,218,17));
         this.game = game;
 
         this.xPos = xPos;

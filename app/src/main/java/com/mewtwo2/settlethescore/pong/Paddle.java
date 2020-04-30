@@ -15,10 +15,9 @@ class Paddle {
     float xPos;
     float yPos;
 
-    Paddle(float xPos, float yPos, PongGame game)
+    Paddle(float xPos, float yPos, Paint paint, PongGame game)
     {
-        paint = new Paint();
-        paint.setColor(Color.WHITE);
+        this.paint = paint;
         this.game = game;
         this.xPos = xPos;
         this.yPos = yPos;
