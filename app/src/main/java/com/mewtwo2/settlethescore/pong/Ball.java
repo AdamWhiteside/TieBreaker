@@ -13,7 +13,7 @@ class Ball {
     private float xPos;
     private float yPos;
 
-    private static final float SPEED_MULTIPLIER = 1.3f;
+    private static final float SPEED_MULTIPLIER = 1.2f;
     private float speed;
     private float xVel;
     private float yVel;
