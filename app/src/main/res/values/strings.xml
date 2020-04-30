@@ -36,6 +36,7 @@
     <string name="name_coin_flip">Coin Flip</string>
     <string name="name_rock_paper_scissors">Rock Paper Scissors</string>
     <string name="name_tic_tac_toe">Tic Tac Toe</string>
+    <string name="name_pong">Pong</string>
     <string name="name_roulette">Roulette</string>
     <string name="name_button_mash">Button Mash</string>
     <string name="name_quick_draw">QuickDraw</string>
