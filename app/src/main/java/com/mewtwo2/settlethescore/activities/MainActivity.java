@@ -95,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
                 QuickDrawActivity.class,
                 R.string.name_quick_draw,
                 R.string.instruction_quick_draw,
-                R.drawable.roulettelogo,
+                R.drawable.quickdrawlogo,
                 GameInfo.GameType.Interactive);
 
         registrationComplete = true;
