@@ -38,8 +38,8 @@ public class PongGame {
 
         this.view = view;
         ball = new Ball(view.getWidth()/2f,view.getHeight()/2f, this);
-        paddleBottom = new Paddle(view.getWidth()/2f - Paddle.width/2f,view.getHeight() - 50 - Paddle.height, paintBottomPaddle, this);
-        paddleTop = new Paddle(view.getWidth()/2f - Paddle.width/2f, 50f, paintTopPaddle, this);
+        paddleBottom = new Paddle(view.getWidth()/2f - Paddle.width/2f,view.getHeight() - Ball.radius*2 - Paddle.height, paintBottomPaddle, this);
+        paddleTop = new Paddle(view.getWidth()/2f - Paddle.width/2f, Ball.radius*2, paintTopPaddle, this);
 
         paused = false;
     }
