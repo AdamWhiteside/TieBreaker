@@ -6,6 +6,8 @@ import android.view.SurfaceHolder;
 import com.mewtwo2.settlethescore.ui.PongView;
 
 public class PongThread extends Thread {
+    public static final float DELTA_MAX = 1f/30f;
+
     private final SurfaceHolder surfaceHolder;
     private final PongView pongView;
     private float targetFPS;
@@ -39,8 +41,8 @@ public class PongThread extends Thread {
         while(running) {
             //Calculate time passed between frames in milliseconds.
             long currentFrameTime = System.currentTimeMillis();
-            //Calculate delta time in seconds
-            float deltaTime = (currentFrameTime - lastFrameTime)/ 1000f;
+            //Calculate delta time in seconds, capped to a maximum value
+            float deltaTime = Math.min((currentFrameTime - lastFrameTime)/ 1000f, DELTA_MAX);
 
             canvas = null;
 
