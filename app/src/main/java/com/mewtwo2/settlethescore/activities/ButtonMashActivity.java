@@ -28,7 +28,7 @@ public class ButtonMashActivity extends GameActivity{
     int playerOneScore = 0;
     int playerTwoScore = 0;
     int turn = 0;
-    boolean playerOneTurn = true;
+    private boolean playerOneTurn = true;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,7 +65,7 @@ public class ButtonMashActivity extends GameActivity{
                 public void onFinish() {
                     arcadeButton.setEnabled(false);
                     gameStarted = false;
-                    info.setText("Game Over");
+                    //info.setText("Game Over");
                     result.setText("Current Taps: " + currentTaps);
                     if(turn == 0)
                         playerOneScore = currentTaps;
@@ -89,6 +89,9 @@ public class ButtonMashActivity extends GameActivity{
                         handler.postDelayed(new Runnable() {
                             @Override
                             public void run() {
+                                //arcadeButton.setEnabled(true);
+                                //info.setText("Start Tapping");
+                                currentTaps = 0;
 
                                 openPopUpActivity();
                             }
@@ -118,7 +121,7 @@ public class ButtonMashActivity extends GameActivity{
         Intent intent = new Intent(this,PopUpActivity.class);
         intent.putExtra("playerOneTurn", playerOneTurn);
         intent.putExtra("playerOneScore", playerOneScore);
-        intent.putExtra("GameInfo", GameRegistry.getGameInfo(CoinFlipActivity.class));
+        intent.putExtra("GameInfo", GameRegistry.getGameInfo(ButtonMashActivity.class));
         startActivity(intent);
     }
 
