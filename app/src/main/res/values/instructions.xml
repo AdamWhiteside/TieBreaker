@@ -7,6 +7,6 @@
         On a 3x3 grid each player takes turns placing their symbol in order to try and get three in a row. Whoever gets three in a row first wins and gets a point. If the board fills and no one gets 3 in a row, the result is a draw. Player 1 is X, Player 2 is O
     </string>
     <string name='instruction_pong'>
-        Play the pong thing.
+        Player 1 plays at the top of the screen and Player 2 at the bottom. Both players control their paddles by dragging their finger on their side of the screen. First player to score wins.
     </string>
 </resources>
