@@ -98,6 +98,13 @@ public class MainActivity extends AppCompatActivity {
                 R.drawable.buttonmashlogo,
                 GameInfo.GameType.Noninteractive);
 
+        GameRegistry.RegisterGame(
+                QuickDrawActivity.class,
+                R.string.name_roulette,
+                R.string.instruction_roulette,
+                R.drawable.roulettelogo,
+                GameInfo.GameType.Interactive);
+
         registrationComplete = true;
     }
 
